@@ -2,224 +2,540 @@
 <html lang="lv">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AiBoost Pro | Digitālie risinājumi</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="google-site-verification" content="dG8pB2XT4XHh5N6QUkGv60sk6DNqHIGQ9BqFExKNHuM" />
+<meta name="description" content="AiBoost Pro — AI un digitālā mārketinga aģentūra Latvijā. Čatboti, sociālie tīkli, AI saturs, SEO.">
+<title>AiBoost Pro | AI un Digitālais Mārketings Latvijā</title>
+<link href=" https://fonts.googleapis.com/css2?family=Syne:wght@600;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-body{
-    margin:0;
-    font-family:Arial, sans-serif;
-    background:#0f172a;
-    color:white;
-}
+html,body,*{-webkit-text-size-adjust:none!important;text-size-adjust:none!important;}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{--black:#0a0a0a;--white:#f5f3ee;--accent:#00e5a0;--accent2:#0066ff;--gray:#17171c;--gray2:#222;--muted:#888;}
+html{font-size:16px;scroll-behavior:smooth;}
+body{background:var(--black);color:var(--white);font-family:'DM Sans',sans-serif;line-height:1.6;overflow-x:hidden;}
 
-header{
-    padding:60px 20px;
-    text-align:center;
-    background:linear-gradient(135deg,#1e293b,#0f172a);
-}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:1rem 3rem;background:rgba(10,10,10,0.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.06);}
+.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.3rem;color:var(--white);text-decoration:none;}
+.logo span{color:var(--accent);}
+.nav-links{display:flex;gap:1.5rem;list-style:none;align-items:center;}
+.nav-links a{color:var(--white);text-decoration:none;font-size:0.88rem;opacity:0.7;transition:opacity 0.2s;}
+.nav-links a:hover{opacity:1;}
+.nav-cta{background:var(--accent)!important;color:var(--black)!important;opacity:1!important;padding:0.45rem 1.1rem;border-radius:100px;font-weight:600!important;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:5px;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--white);border-radius:2px;}
+.mobile-menu{display:none;position:fixed;top:61px;left:0;right:0;background:rgba(10,10,10,0.98);z-index:199;border-bottom:1px solid rgba(255,255,255,0.08);padding:0.5rem 0;}
+.mobile-menu.open{display:block;}
+.mobile-menu a{display:block;color:var(--white);text-decoration:none;padding:0.9rem 2rem;font-size:1rem;border-bottom:1px solid rgba(255,255,255,0.05);opacity:0.85;}
+.mobile-menu a:last-child{border:none;color:var(--accent);font-weight:600;opacity:1;}
 
-h1{
-    font-size:42px;
-    margin:0;
-}
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:7rem 3rem 4rem;position:relative;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 80% 50%,rgba(0,229,160,0.08),transparent 70%),radial-gradient(ellipse 40% 40% at 20% 80%,rgba(0,102,255,0.08),transparent 60%);pointer-events:none;}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;}
+.hero-content{position:relative;max-width:1100px;margin:0 auto;width:100%;}
+.hero-tag{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(0,229,160,0.1);border:1px solid rgba(0,229,160,0.3);color:var(--accent);font-size:0.75rem;padding:0.4rem 1rem;border-radius:100px;margin-bottom:1.5rem;}
+.hero-tag::before{content:'';width:6px;height:6px;background:var(--accent);border-radius:50%;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(2.2rem,5.5vw,5rem);font-weight:800;line-height:1.05;letter-spacing:-0.03em;margin-bottom:1.2rem;animation:fadeUp 0.7s ease both;}
+.hero h1 em{font-style:normal;color:var(--accent);}
+.hero-sub{font-size:clamp(0.9rem,2vw,1.05rem);color:var(--muted);max-width:480px;margin-bottom:2rem;animation:fadeUp 0.7s 0.1s ease both;}
+.hero-actions{display:flex;gap:0.8rem;flex-wrap:wrap;animation:fadeUp 0.7s 0.2s ease both;}
+.btn-primary{background:var(--accent);color:var(--black);padding:0.8rem 1.7rem;border-radius:100px;font-weight:600;font-size:0.88rem;text-decoration:none;transition:transform 0.2s,box-shadow 0.2s;display:inline-block;white-space:nowrap;}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 25px rgba(0,229,160,0.35);}
+.btn-secondary{border:1px solid rgba(255,255,255,0.2);color:var(--white);padding:0.8rem 1.7rem;border-radius:100px;font-size:0.88rem;text-decoration:none;display:inline-block;transition:border-color 0.2s;white-space:nowrap;}
+.btn-secondary:hover{border-color:rgba(255,255,255,0.5);}
+.hero-stats{display:flex;gap:2.5rem;margin-top:3.5rem;padding-top:2.5rem;border-top:1px solid rgba(255,255,255,0.08);animation:fadeUp 0.7s 0.3s ease both;flex-wrap:wrap;}
+.stat-num{font-family:'Syne',sans-serif;font-size:1.9rem;font-weight:800;color:var(--accent);}
+.stat-label{font-size:0.75rem;color:var(--muted);}
 
-section{
-    padding:60px 20px;
-    text-align:center;
-}
+/* SECTIONS */
+.section-wrap{padding:5rem 3rem;max-width:1100px;margin:0 auto;}
+.section-tag{font-size:0.72rem;font-weight:600;color:var(--accent);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.7rem;}
+.section-wrap h2{font-family:'Syne',sans-serif;font-size:clamp(1.7rem,3.5vw,2.6rem);font-weight:800;letter-spacing:-0.03em;line-height:1.1;margin-bottom:0.8rem;}
+.section-desc{color:var(--muted);font-size:0.88rem;max-width:480px;margin-bottom:2.5rem;line-height:1.7;}
 
-.card{
-    background:#1e293b;
-    padding:25px;
-    border-radius:12px;
-    margin:15px auto;
-    max-width:400px;
-}
+/* SERVICES */
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.1rem;}
+.service-card{background:var(--gray);border:1px solid rgba(255,255,255,0.06);border-radius:14px;padding:1.7rem;transition:transform 0.3s,border-color 0.3s,box-shadow 0.3s;position:relative;overflow:hidden;}
+.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));opacity:0;transition:opacity 0.3s;}
+.service-card:hover{transform:translateY(-4px);border-color:rgba(0,229,160,0.2);box-shadow:0 16px 32px rgba(0,0,0,0.3);}
+.service-card:hover::before{opacity:1;}
+.service-icon{font-size:1.7rem;margin-bottom:1rem;display:block;}
+.service-card h3{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-bottom:0.5rem;}
+.service-card p{color:var(--muted);font-size:0.78rem;line-height:1.6;}
+.service-price{margin-top:1.1rem;font-size:0.78rem;color:var(--accent);font-weight:600;}
 
-.btn{
-    display:inline-block;
-    padding:12px 25px;
-    background:#6366f1;
-    color:white;
-    border-radius:8px;
-    text-decoration:none;
-    margin-top:15px;
-}
+/* WHY */
+.why-section{background:var(--gray);border-radius:20px;padding:3rem;margin:0 3rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;border:1px solid rgba(255,255,255,0.06);}
+.why-list{list-style:none;display:flex;flex-direction:column;gap:0.9rem;}
+.why-list li{display:flex;gap:0.8rem;font-size:0.88rem;color:rgba(245,243,238,0.85);line-height:1.5;}
+.why-list li::before{content:'✓';color:var(--accent);font-weight:700;flex-shrink:0;}
 
-footer{
-    padding:30px;
-    text-align:center;
-    background:#111827;
-}
+/* TESTIMONIALS */
+.testimonials-section{background:var(--gray);border-radius:20px;padding:3rem;margin:2.5rem 3rem 0;border:1px solid rgba(255,255,255,0.06);text-align:center;}
+.testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.1rem;margin-top:2rem;}
+.testimonial-card{background:var(--black);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:1.3rem;text-align:left;}
+.testimonial-card p{color:var(--muted);font-size:0.78rem;line-height:1.6;font-style:italic;}
+.testimonial-card span{display:block;color:var(--accent);font-size:0.7rem;margin-top:0.7rem;font-weight:500;}
 
-/* CHAT */
-#chat-btn{
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    background:#6366f1;
-    color:white;
-    padding:15px;
-    border-radius:50%;
-    cursor:pointer;
-    font-size:18px;
-}
+/* FAQ */
+.faq-item{border-bottom:1px solid rgba(255,255,255,0.08);}
+.faq-question{display:flex;justify-content:space-between;align-items:center;padding:1.1rem 0;cursor:pointer;font-size:0.88rem;font-weight:500;transition:color 0.2s;user-select:none;}
+.faq-question:hover{color:var(--accent);}
+.faq-icon{color:var(--accent);font-size:1.3rem;transition:transform 0.3s;flex-shrink:0;margin-left:1rem;}
+.faq-item.open .faq-icon{transform:rotate(45deg);}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height 0.4s ease;color:var(--muted);font-size:0.88rem;line-height:1.7;}
+.faq-item.open .faq-answer{max-height:200px;padding-bottom:1.1rem;}
 
-#chat-window{
-    position:fixed;
-    bottom:90px;
-    right:20px;
-    width:300px;
-    background:white;
-    color:black;
-    border-radius:10px;
-    display:none;
-    flex-direction:column;
-    overflow:hidden;
-}
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
+.about-visual{background:var(--gray);border-radius:18px;padding:2.5rem;border:1px solid rgba(255,255,255,0.06);text-align:center;}
+.avatar-circle{width:88px;height:88px;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:50%;margin:0 auto 1.2rem;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:var(--black);}
+.about-name{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:700;margin-bottom:0.3rem;}
+.about-role{color:var(--accent);font-size:0.75rem;margin-bottom:1.2rem;}
+.skills-tags{display:flex;flex-wrap:wrap;gap:0.4rem;justify-content:center;}
+.skill-tag{background:rgba(0,229,160,0.1);border:1px solid rgba(0,229,160,0.2);color:var(--accent);font-size:0.68rem;padding:0.22rem 0.65rem;border-radius:100px;}
+.about-text p{color:var(--muted);line-height:1.8;margin-bottom:0.8rem;font-size:0.88rem;}
+.lang-badges{display:flex;gap:0.5rem;margin-top:1.1rem;flex-wrap:wrap;}
+.lang-badge{background:var(--gray2);border:1px solid rgba(255,255,255,0.1);padding:0.3rem 0.8rem;border-radius:7px;font-size:0.75rem;}
 
-#chat-header{
-    background:#6366f1;
-    color:white;
-    padding:10px;
-    text-align:center;
-}
+/* CONTACT */
+.contact-section{background:linear-gradient(135deg,rgba(0,229,160,0.07),rgba(0,102,255,0.07));border:1px solid rgba(0,229,160,0.15);border-radius:20px;padding:4rem 3rem;margin:0 3rem 5rem;text-align:center;}
+.contact-section p{color:var(--muted);font-size:0.88rem;margin-bottom:2rem;}
+.contact-links{display:flex;gap:0.7rem;justify-content:center;flex-wrap:wrap;}
+.contact-item{display:flex;align-items:center;gap:0.45rem;background:var(--gray);border:1px solid rgba(255,255,255,0.08);padding:0.65rem 1.2rem;border-radius:10px;font-size:0.78rem;color:var(--white);text-decoration:none;transition:border-color 0.2s,transform 0.2s;}
+.contact-item:hover{border-color:var(--accent);transform:translateY(-2px);}
+footer{text-align:center;padding:1.8rem 3rem;color:var(--muted);font-size:0.75rem;border-top:1px solid rgba(255,255,255,0.06);}
+footer span{color:var(--accent);}
+.fade-up{opacity:0;transform:translateY(25px);transition:opacity 0.6s ease,transform 0.6s ease;}
+.fade-up.visible{opacity:1;transform:translateY(0);}
 
-#chat-msgs{
-    height:250px;
-    overflow-y:auto;
-    padding:10px;
-    font-size:14px;
-}
+/* CHATBOT */
+#chat-btn{position:fixed;bottom:28px;right:28px;background:var(--accent);color:#000;padding:0.75rem 1.3rem;border-radius:50px;cursor:pointer;z-index:9999;font-weight:700;font-size:0.85rem;box-shadow:0 4px 20px rgba(0,229,160,0.45);display:flex;align-items:center;gap:0.5rem;border:none;font-family:'DM Sans',sans-serif;transition:transform 0.2s;}
+#chat-btn:hover{transform:translateY(-2px);}
+#chat-window{position:fixed;bottom:90px;right:28px;width:340px;max-width:calc(100vw - 20px);height:520px;background:#141414;border-radius:20px;display:none;flex-direction:column;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,0.6);z-index:9998;border:1px solid rgba(0,229,160,0.2);}
+#chat-header{background:linear-gradient(90deg,#00c87a,#00e5a0);color:#000;padding:0.9rem 1rem;display:flex;justify-content:space-between;align-items:center;font-family:'Syne',sans-serif;font-weight:700;font-size:0.9rem;}
+.chat-status{font-size:0.68rem;font-weight:400;opacity:0.8;}
+#chat-close{cursor:pointer;font-size:1.1rem;background:none;border:none;color:#000;opacity:0.7;}
+#chat-lang{display:flex;gap:0.4rem;padding:0.5rem 0.8rem;background:rgba(255,255,255,0.03);border-bottom:1px solid rgba(255,255,255,0.07);}
+.lang-btn{flex:1;padding:0.28rem;border-radius:7px;border:1px solid rgba(255,255,255,0.12);background:transparent;color:var(--white);font-size:0.7rem;cursor:pointer;transition:all 0.2s;font-family:'DM Sans',sans-serif;}
+.lang-btn.active{background:var(--accent);color:#000;border-color:var(--accent);font-weight:700;}
+#chat-msgs{flex:1;padding:0.8rem;overflow-y:auto;display:flex;flex-direction:column;gap:8px;scroll-behavior:smooth;}
+#chat-msgs::-webkit-scrollbar{width:3px;}
+#chat-msgs::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1);border-radius:2px;}
+.msg{padding:9px 13px;border-radius:14px;max-width:85%;font-size:0.8rem;line-height:1.55;white-space:pre-wrap;}
+.msg.bot{background:rgba(0,229,160,0.1);color:#d4fff4;align-self:flex-start;border-radius:4px 14px 14px 14px;}
+.msg.user{background:rgba(0,102,255,0.2);color:#fff;align-self:flex-end;border-radius:14px 4px 14px 14px;}
+.msg.typing{font-style:italic;color:var(--muted);}
+#chat-socials{padding:0.45rem 0.8rem;border-top:1px solid rgba(255,255,255,0.07);}
+.socials-label{font-size:0.65rem;color:var(--muted);margin-bottom:0.35rem;}
+.socials-row{display:flex;gap:0.35rem;flex-wrap:wrap;}
+.social-link{padding:0.25rem 0.55rem;border-radius:7px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);color:var(--white);font-size:0.68rem;text-decoration:none;transition:all 0.2s;white-space:nowrap;}
+.social-link:hover{background:rgba(0,229,160,0.15);border-color:var(--accent);}
+#chat-quick{display:flex;flex-wrap:wrap;gap:4px;padding:0.4rem 0.8rem;border-top:1px solid rgba(255,255,255,0.07);}
+.quick-btn{padding:0.28rem 0.6rem;border-radius:9px;background:rgba(0,229,160,0.1);border:1px solid rgba(0,229,160,0.22);color:var(--accent);font-size:0.68rem;cursor:pointer;transition:background 0.2s;white-space:nowrap;font-family:'DM Sans',sans-serif;}
+.quick-btn:hover{background:rgba(0,229,160,0.22);}
+#chat-input-area{display:flex;border-top:1px solid rgba(255,255,255,0.08);}
+#chat-input{flex:1;padding:0.7rem 1rem;border:none;background:transparent;color:#fff;outline:none;font-size:0.82rem;font-family:'DM Sans',sans-serif;}
+#chat-input::placeholder{color:rgba(255,255,255,0.3);}
+#chat-send{background:var(--accent);border:none;color:#000;padding:0 1rem;cursor:pointer;font-weight:700;font-size:1rem;}
 
-.msg{
-    margin:5px 0;
-    padding:8px;
-    border-radius:8px;
-    max-width:80%;
-}
-
-.user{
-    background:#6366f1;
-    color:white;
-    margin-left:auto;
-}
-
-.bot{
-    background:#e5e7eb;
-}
-
-#chat-input-area{
-    display:flex;
-    border-top:1px solid #ddd;
-}
-
-#chat-input{
-    flex:1;
-    border:none;
-    padding:10px;
-}
-
-#chat-input-area button{
-    background:#6366f1;
-    border:none;
-    color:white;
-    padding:10px;
-    cursor:pointer;
+@media(max-width:768px){
+  nav{padding:0.85rem 1.2rem;}
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .hero{padding:5.5rem 1.2rem 3rem;}
+  .section-wrap{padding:3.5rem 1.2rem;}
+  .why-section{grid-template-columns:1fr;margin:0 1.2rem;padding:2rem;gap:2rem;}
+  .testimonials-section{margin:2.5rem 1.2rem 0;padding:2rem 1.2rem;}
+  .about-grid{grid-template-columns:1fr;gap:2rem;}
+  .contact-section{margin:0 1.2rem 4rem;padding:2.5rem 1.2rem;}
+  footer{padding:1.5rem 1.2rem;}
+  #chat-window{right:8px;left:8px;width:auto;bottom:80px;}
+  #chat-btn{right:16px;bottom:20px;}
 }
 </style>
 </head>
-
 <body>
 
-<header>
-<h1>AiBoost Pro</h1>
-<p>Digitālie risinājumi uzņēmuma izaugsmei</p>
-<a href="#contact" class="btn">Bezmaksas konsultācija</a>
-</header>
+<nav>
+  <a href="#" class="logo">AiBoost<span>Pro</span></a>
+  <ul class="nav-links">
+    <li><a href="#pakalpojumi">Pakalpojumi</a></li>
+    <li><a href="#par-mums">Par mani</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#kontakti">Kontakti</a></li>
+    <li><a href="#kontakti" class="nav-cta">Sazināties</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</nav>
 
-<section>
-<h2>Pakalpojumi</h2>
-
-<div class="card">
-<h3>AI Čatboti</h3>
-<p>Automātiska klientu apkalpošana 24/7 jūsu mājaslapai.</p>
-<p><strong>No 150€</strong></p>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#pakalpojumi" onclick="toggleMenu()">Pakalpojumi</a>
+  <a href="#par-mums" onclick="toggleMenu()">Par mani</a>
+  <a href="#faq" onclick="toggleMenu()">FAQ</a>
+  <a href="#kontakti" onclick="toggleMenu()">Kontakti</a>
+  <a href="#kontakti" onclick="toggleMenu()">✨ Bezmaksas konsultācija</a>
 </div>
 
-<div class="card">
-<h3>Sociālo tīklu vadība</h3>
-<p>Profesionāls saturs un reklāmas jūsu biznesam.</p>
-<p><strong>No 200€/mēn.</strong></p>
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-tag">AI Mārketinga Aģentūra — Rīga, Latvija</div>
+    <h1>Digitālais<br>mārketings<br><em>nākotnes</em> līmenī</h1>
+    <p class="hero-sub">Palīdzam maziem un vidējiem uzņēmumiem augt ar mākslīgā intelekta, čatbotiem un mērķētu digitālo stratēģiju.</p>
+    <div class="hero-actions">
+      <a href="#kontakti" class="btn-primary">Bezmaksas konsultācija</a>
+      <a href="#pakalpojumi" class="btn-secondary">Pakalpojumi</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-num">3</div><div class="stat-label">Valodas LV·RU·EN</div></div>
+      <div><div class="stat-num">24/7</div><div class="stat-label">AI čatboti klientiem</div></div>
+      <div><div class="stat-num">100%</div><div class="stat-label">Fokuss uz rezultātu</div></div>
+    </div>
+  </div>
 </div>
 
-</section>
+<div class="section-wrap" id="pakalpojumi">
+  <div class="section-tag">Pakalpojumi</div>
+  <h2>Ko mēs piedāvājam</h2>
+  <p class="section-desc">Visaptveroši AI un digitālā mārketinga risinājumi jūsu biznesam.</p>
+  <div class="services-grid fade-up">
+    <div class="service-card"><span class="service-icon">🤖</span><h3>Čatbotu izveide</h3><p>Automatizētas atbildes klientiem 24/7. Uzstādām čatbotus mājaslapā un sociālajos tīklos.</p><div class="service-price">No 150€ — vienreizēji</div></div>
+    <div class="service-card"><span class="service-icon">📱</span><h3>Sociālie tīkli</h3><p>Satura stratēģija, dizains un publicēšana Instagram, Facebook, TikTok, LinkedIn.</p><div class="service-price">No 200€/mēnesī</div></div>
+    <div class="service-card"><span class="service-icon">✍️</span><h3>AI Satura veidošana</h3><p>Raksti, reklāmas teksti, apraksti LV, RU un EN valodā. Ātrāk un labāk ar AI.</p><div class="service-price">No 80€/mēnesī</div></div>
+    <div class="service-card"><span class="service-icon">🎯</span><h3>Digitālais Mārketings</h3><p>SEO, reklāmas, e-pasta kampaņas un analītika. Pilna stratēģija jūsu biznesam.</p><div class="service-price">No 300€/mēnesī</div></div>
+    <div class="service-card"><span class="service-icon">🌐</span><h3>Mājaslapa un Čats</h3><p>Moderna mājaslapa ar iebūvētu čatbotu. Wix, WordPress un citas platformas.</p><div class="service-price">No 250€ — vienreizēji</div></div>
+    <div class="service-card"><span class="service-icon">💡</span><h3>AI Konsultācijas</h3><p>Individuālas konsultācijas un apmācības par AI izmantošanu jūsu biznesā.</p><div class="service-price">No 60€/stundā</div></div>
+  </div>
+</div>
 
-<section id="contact">
-<h2>Kontakti</h2>
-<p>WhatsApp: +371 22389028</p>
-<p>E-pasts: info@aiboostpro.lv</p>
-</section>
+<div class="why-section fade-up">
+  <div>
+    <div class="section-tag">Kāpēc mēs</div>
+    <h2>Jūsu izaugsme — mūsu prioritāte</h2>
+  </div>
+  <ul class="why-list">
+    <li>Strādājam 3 valodās — latviešu, krievu, angļu</li>
+    <li>Izmantojam jaunākās AI tehnoloģijas</li>
+    <li>Individuāla pieeja katram klientam</li>
+    <li>Redzams progress jau pirmajā mēnesī</li>
+    <li>Caurspīdīga atskaite par paveikto darbu</li>
+    <li>Atbildam tajā pašā dienā</li>
+  </ul>
+</div>
+
+<div class="testimonials-section fade-up">
+  <div class="section-tag">Atsauksmes</div>
+  <h2>Ko saka klienti</h2>
+  <div class="testimonials-grid">
+    <div class="testimonial-card"><p>"Rezultāti redzami jau pirmajā mēnesī. Profesionāla un ātra sadarbība!"</p><span>— Uzņēmuma īpašnieks, Rīga</span></div>
+    <div class="testimonial-card"><p>"Čatbots būtiski samazināja klientu apkalpošanas laiku. Ļoti iesaku!"</p><span>— Pakalpojumu sniedzējs</span></div>
+    <div class="testimonial-card"><p>"Sociālo tīklu menedžments ir lieliski. Sekotāji aug katru nedēļu."</p><span>— Mazā biznesa īpašniece</span></div>
+  </div>
+</div>
+
+<div class="section-wrap" id="faq">
+  <div class="section-tag">Biežāk uzdotie jautājumi</div>
+  <h2>FAQ</h2>
+  <p class="section-desc">Atbildes uz visbiežāk uzdotajiem jautājumiem.</p>
+  <div class="faq-item"><div class="faq-question">Cik maksā čatbota izveide?<span class="faq-icon">+</span></div><div class="faq-answer">Čatbota izveide sākas no 150€ vienreizēji. Cena atkarīga no sarežģītības. Pirmā konsultācija — bezmaksas!</div></div>
+  <div class="faq-item"><div class="faq-question">Cik ilgi aizņem mājaslapa izveide?<span class="faq-icon">+</span></div><div class="faq-answer">Tipiska mājaslapa ar čatbotu tiek izstrādāta 3–7 darba dienās.</div></div>
+  <div class="faq-item"><div class="faq-question">Kādās valodās jūs strādājat?<span class="faq-icon">+</span></div><div class="faq-answer">Strādājam latviešu, krievu un angļu valodā.</div></div>
+  <div class="faq-item"><div class="faq-question">Vai var pasūtīt tikai vienu pakalpojumu?<span class="faq-icon">+</span></div><div class="faq-answer">Jā! Varat pasūtīt jebkuru pakalpojumu atsevišķi.</div></div>
+  <div class="faq-item"><div class="faq-question">Vai pirmā konsultācija tiešām ir bezmaksas?<span class="faq-icon">+</span></div><div class="faq-answer">Jā, pilnīgi bezmaksas! Sazinieties pa e-pastu vai WhatsApp.</div></div>
+  <div class="faq-item"><div class="faq-question">Vai strādājat ar maziem uzņēmumiem?<span class="faq-icon">+</span></div><div class="faq-answer">Jā! Specializējamies tieši uz maziem un vidējiem uzņēmumiem.</div></div>
+</div>
+
+<div class="section-wrap" id="par-mums">
+  <div class="about-grid">
+    <div class="about-visual fade-up">
+      <div class="avatar-circle">K</div>
+      <div class="about-name">Kristīne</div>
+      <div class="about-role">AI un Digitālā Mārketinga Speciāliste</div>
+      <div class="skills-tags">
+        <span class="skill-tag">Digitālais Mārketings</span>
+        <span class="skill-tag">AI Rīki</span>
+        <span class="skill-tag">Čatboti</span>
+        <span class="skill-tag">Sociālie Tīkli</span>
+        <span class="skill-tag">Satura Veidošana</span>
+        <span class="skill-tag">SEO</span>
+      </div>
+    </div>
+    <div class="about-text fade-up">
+      <div class="section-tag">Par mani</div>
+      <h2>Cilvēks aiz AiBoost Pro</h2>
+      <p>Esmu Kristīne — digitālā mārketinga un mākslīgā intelekta speciāliste. Palīdzu maziem uzņēmumiem augt digitālajā vidē.</p>
+      <p>Piedāvāju modernus risinājumus par saprātīgām cenām — tādus, kas agrāk bija pieejami tikai lieliem uzņēmumiem.</p>
+      <p>Strādāju godīgi, ātri un ar pilnu atdevi katram projektam.</p>
+      <div class="lang-badges">
+        <span class="lang-badge">🇱🇻 Latviski</span>
+        <span class="lang-badge">🇷🇺 Русский</span>
+        <span class="lang-badge">🇬🇧 English</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="contact-section fade-up" id="kontakti">
+  <div class="section-tag">Kontakti</div>
+  <h2>Sākam kopā?</h2>
+  <p>Pirmā konsultācija ir bezmaksas! Atbildu tajā pašā dienā.</p>
+  <div class="contact-links">
+    <a href="mailto:aiboostpro.lv@gmail.com" class="contact-item">📧 E-pasts</a>
+    <a href=" https://wa.me/37122389028" class="contact-item" target="_blank">💬 WhatsApp</a>
+    <a href=" https://www.instagram.com/aiboostpro.lv" class="contact-item" target="_blank">📸 Instagram</a>
+    <a href=" https://www.facebook.com/share/1AeCYCRLKz/" class="contact-item" target="_blank">📘 Facebook</a>
+    <a href=" https://www.tiktok.com/@aiboostpro3" class="contact-item" target="_blank">🎵 TikTok</a>
+    <a href=" https://t.me/aiboostpro" class="contact-item" target="_blank">✈️ Telegram</a>
+    <a href=" https://www.linkedin.com/company/aiboostpro" class="contact-item" target="_blank">💼 LinkedIn</a>
+  </div>
+</div>
 
 <footer>
-© 2026 AiBoost Pro | Visas tiesības aizsargātas
+  <p>© 2026 <span>AiBoost Pro</span> — Digitālais mārketings un AI risinājumi. Rīga, Latvija.</p>
 </footer>
 
-<!-- CHAT BUTTON -->
-<div id="chat-btn">💬</div>
-
-<!-- CHAT WINDOW -->
+<!-- CHATBOT -->
+<button id="chat-btn">💬 Jautā AI</button>
 <div id="chat-window">
-<div id="chat-header">AiBoost Pro</div>
-<div id="chat-msgs"></div>
-<div id="chat-input-area">
-<input type="text" id="chat-input" placeholder="Raksti ziņu...">
-<button onclick="sendMessage()">Sūtīt</button>
-</div>
+  <div id="chat-header">
+    <div>
+      <div>🤖 AiBoost Pro AI</div>
+      <div class="chat-status">● Tiešsaistē 24/7</div>
+    </div>
+    <button id="chat-close">✕</button>
+  </div>
+  <div id="chat-lang">
+    <button class="lang-btn active" onclick="setLang('lv',this)">🇱🇻 LV</button>
+    <button class="lang-btn" onclick="setLang('ru',this)">🇷🇺 RU</button>
+    <button class="lang-btn" onclick="setLang('en',this)">🇬🇧 EN</button>
+  </div>
+  <div id="chat-msgs"></div>
+  <div id="chat-socials">
+    <div class="socials-label">📲 Sociālie tīkli:</div>
+    <div class="socials-row">
+      <a href=" https://wa.me/37122389028" class="social-link" target="_blank">💬 WhatsApp</a>
+      <a href=" https://www.instagram.com/aiboostpro.lv" class="social-link" target="_blank">📸 Instagram</a>
+      <a href=" https://www.facebook.com/share/1AeCYCRLKz/" class="social-link" target="_blank">📘 Facebook</a>
+      <a href=" https://www.tiktok.com/@aiboostpro3" class="social-link" target="_blank">🎵 TikTok</a>
+      <a href=" https://t.me/aiboostpro" class="social-link" target="_blank">✈️ Telegram</a>
+      <a href=" https://www.linkedin.com/company/aiboostpro" class="social-link" target="_blank">💼 LinkedIn</a>
+    </div>
+  </div>
+  <div id="chat-quick"></div>
+  <div id="chat-input-area">
+    <input type="text" id="chat-input" placeholder="Raksti ziņu...">
+    <button id="chat-send">➤</button>
+  </div>
 </div>
 
 <script>
+// NAV
+function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open');}
 
-function toggleChat(){
-    const win=document.getElementById('chat-window');
-    win.style.display=win.style.display==='flex'?'none':'flex';
+// FAQ
+document.querySelectorAll('.faq-question').forEach(q=>{
+  q.addEventListener('click',()=>{
+    const item=q.parentElement,wasOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+    if(!wasOpen)item.classList.add('open');
+  });
+});
 
-    if(win.style.display==='flex' && 
-       document.getElementById('chat-msgs').innerHTML===""){
-        addMessage("Sveiki! Esmu Kristīne no AiBoost Pro. Kā varu palīdzēt?",'bot');
-    }
+// FADE UP
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
+},{threshold:0.1});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+
+// ===== CHATBOT =====
+let lang='lv', waiting=false;
+const msgs=document.getElementById('chat-msgs');
+const inp=document.getElementById('chat-input');
+
+const UI={
+  lv:{ph:'Raksti ziņu...',typ:'✍️ Raksta...',
+    hi:'Sveika! 😊✨ Esmu AiBoost Pro AI asistente!\n\nVaru atbildēt uz JEBKURU jautājumu — par mārketingu, AI, cenām, pakalpojumiem vai vienkārši parunāt! Uzdod jebko! 💪🚀',
+    q:['🤖 Čatboti','📱 Sociālie tīkli','💰 Cenas','📞 Konsultācija','🔍 SEO','🌐 Mājaslapa','✍️ AI Saturs','❓ Par mums']},
+  ru:{ph:'Написать сообщение...',typ:'✍️ Пишет...',
+    hi:'Привет! 😊✨ Я AI-ассистент AiBoost Pro!\n\nМогу ответить на ЛЮБОЙ вопрос — о маркетинге, AI, ценах, услугах! Спрашивайте! 💪🚀',
+    q:['🤖 Чат-боты','📱 Соц. сети','💰 Цены','📞 Консультация','🔍 SEO','🌐 Сайт','✍️ AI контент','❓ О нас']},
+  en:{ph:'Type a message...',typ:'✍️ Typing...',
+    hi:'Hello! 😊✨ I am AiBoost Pro AI assistant!\n\nI can answer ANY question — about marketing, AI, pricing, services! Ask me anything! 💪🚀',
+    q:['🤖 Chatbots','📱 Social Media','💰 Pricing','📞 Consultation','🔍 SEO','🌐 Website','✍️ AI Content','❓ About us']}
+};
+
+// Fallback atbildes
+const FB={
+  lv:{
+    'sveik|čau|hey|labdien|labrīt|labvakar':'Sveika! 👋😊 Tik labi ka sazinājies! Ko vēlies uzzināt?',
+    'kā iet|kā klājas':'Man iet lieliski! 😄💚 Esmu gatava palīdzēt! Kā tev iet?',
+    'paldies|pateicos':'Liels paldies! 🙏❤️ Prieks palīdzēt! Ja ir vēl jautājumi — esmu šeit!',
+    'čatbot|bots|bot':'🤖 Mūsu čatboti darbojas 24/7!\n\nIntegrējam: Mājaslapā, Facebook, Instagram, WhatsApp, Telegram\n\n💰 No 150€ vienreizēji\n🎁 Pirmā konsultācija BEZMAKSAS!',
+    'sociāl|instagram|facebook|tiktok|linkedin':'📱 Pārvaldām sociālos tīklus:\n• Instagram, Facebook, TikTok, LinkedIn\n\nIekļauts: saturs + publicēšana + analītika\n\n💰 No 200€/mēnesī',
+    'cen|maksā|cik|budžet':'💰 Mūsu cenas:\n\n🤖 Čatbots — no 150€\n📱 Sociālie tīkli — no 200€/mēn\n✍️ AI saturs — no 80€/mēn\n🎯 Mārketings — no 300€/mēn\n🌐 Mājaslapa — no 250€\n\n🎁 PIRMĀ KONSULTĀCIJA BEZMAKSAS!',
+    'konsult|bezmaksas|tikties':'📞 Pirmā konsultācija BEZMAKSAS! 🎉\n\n📧 aiboostpro.lv@gmail.com\n💬 WhatsApp: +371 22389028\n✈️ Telegram: @aiboostpro\n\nAtbildam tajā pašā dienā! 😊',
+    'seo|google|meklēšan':'🔍 SEO — lai Google tevi atrastu!\n\nPalīdzam parādīties Google 1. lapā un piesaistīt vairāk klientu!\n\n💰 No 300€/mēn',
+    'mājaslap|website|lapa':'🌐 Moderna mājaslapa ar čatbotu!\n\n✅ Mobilā versija\n✅ SEO optimizācija\n✅ Google Analytics\n\n💰 No 250€ vienreizēji',
+    'saturs|rakst|tekst|content':'✍️ AI saturs 3 valodās: LV, RU, EN\n\nRaksti, reklāmas teksti, sociālo tīklu ieraksti\n\n💰 No 80€/mēnesī',
+    'par|kristīn|aģentūr':'👩 AiBoost Pro — Kristīnes vadīta AI mārketinga aģentūra Rīgā! 🇱🇻\n\nMisija: palīdzēt maziem uzņēmumiem augt ar AI! ❤️',
+    'kontakt|saziņ|email':'📞 Kontakti:\n\n📧 aiboostpro.lv@gmail.com\n💬 WhatsApp: +371 22389028\n✈️ Telegram: @aiboostpro\n📸 Instagram: @aiboostpro.lv'
+  },
+  ru:{
+    'привет|здравствуй|хай|добрый':'Привет! 👋😊 Как здорово, что написали! Чем могу помочь?',
+    'как дела|как вы':'Отлично, спасибо! 😄💚 Готова помочь! Как у вас дела?',
+    'спасибо|благодар':'Большое спасибо! 🙏❤️ Рада помочь! Если есть вопросы — я здесь!',
+    'чат|бот|автоматиз':'🤖 Наши чат-боты работают 24/7!\n\nИнтегрируем: Сайт, Facebook, Instagram, WhatsApp, Telegram\n\n💰 От 150€ единоразово\n🎁 Первая консультация БЕСПЛАТНО!',
+    'соц|instagram|facebook|tiktok':'📱 Управляем соцсетями:\n• Instagram, Facebook, TikTok, LinkedIn\n\n💰 От 200€/месяц',
+    'цен|стоит|сколько|бюджет':'💰 Наши цены:\n\n🤖 Чат-бот — от 150€\n📱 Соцсети — от 200€/мес\n✍️ AI контент — от 80€/мес\n🌐 Сайт — от 250€\n\n🎁 ПЕРВАЯ КОНСУЛЬТАЦИЯ БЕСПЛАТНО!',
+    'консульт|бесплатн':'📞 Первая консультация БЕСПЛАТНО! 🎉\n\n📧 aiboostpro.lv@gmail.com\n💬 WhatsApp: +371 22389028\n\nОтвечаем в тот же день! 😊',
+    'сайт|веб':'🌐 Современный сайт с чат-ботом!\n✅ Мобильная версия\n✅ SEO оптимизация\n💰 От 250€',
+    'о нас|агентств':'👩 AiBoost Pro — агентство AI маркетинга в Риге! 🇱🇻 Помогаем малому бизнесу расти! ❤️'
+  },
+  en:{
+    'hello|hi|hey|good morning|good afternoon':'Hello! 👋😊 Great to hear from you! How can I help?',
+    'how are you|how are':'I am great, thanks! 😄💚 Ready to help! How are you?',
+    'thank':'Thank you! 🙏❤️ Happy to help! Feel free to ask more!',
+    'chatbot|bot':'🤖 Our chatbots work 24/7!\n\nWe integrate into: Website, Facebook, Instagram, WhatsApp, Telegram\n\n💰 From €150 one-time\n🎁 First consultation FREE!',
+    'social|instagram|facebook|tiktok':'📱 We manage social media:\n• Instagram, Facebook, TikTok, LinkedIn\n\n💰 From €200/month',
+    'pric|cost|how much|budget':'💰 Our pricing:\n\n🤖 Chatbot — from €150\n📱 Social media — from €200/mo\n✍️ AI content — from €80/mo\n🌐 Website — from €250\n\n🎁 FIRST CONSULTATION FREE!',
+    'consult|free':'📞 First consultation is FREE! 🎉\n\n📧 aiboostpro.lv@gmail.com\n💬 WhatsApp: +371 22389028\n\nWe reply the same day! 😊',
+    'website|web':'🌐 Modern website with chatbot!\n✅ Mobile version\n✅ SEO optimization\n💰 From €250',
+    'about|agency':'👩 AiBoost Pro — AI marketing agency in Riga! 🇱🇻 Helping small businesses grow! ❤️'
+  }
+};
+
+const SYS=`Tu esi AiBoost Pro AI asistente — jautra, sirsnīga, profesionāla digitālā mārketinga eksperte Latvijā. Izmanto emocijzīmes. Esi aktīva un entuziasma pilna!
+
+AiBoost Pro fakti:
+- Aģentūra Rīgā, Latvijā. Dibinātāja: Kristīne
+- Email: aiboostpro.lv@gmail.com | WhatsApp: +371 22389028
+- Telegram: @aiboostpro | Instagram: @aiboostpro.lv | TikTok: @aiboostpro3
+- Facebook: facebook.com/share/1AeCYCRLKz/ | LinkedIn: linkedin.com/company/aiboostpro
+
+Pakalpojumi un cenas:
+- Čatbotu izveide: no 150€ (vienreizēji)
+- Sociālie tīkli: no 200€/mēnesī  
+- AI satura veidošana: no 80€/mēnesī
+- Digitālais mārketings: no 300€/mēnesī
+- Mājaslapa + čats: no 250€ (vienreizēji)
+- AI konsultācijas: no 60€/stundā
+- Pirmā konsultācija: BEZMAKSAS!
+
+Atbildi tajā valodā kurā raksta lietotājs (LV/RU/EN). Esi sirsnīga un draudzīga kā īsts cilvēks!`;
+
+function getFallback(text){
+  text=text.toLowerCase();
+  const map=FB[lang]||FB.lv;
+  for(let pattern in map){
+    const keys=pattern.split('|');
+    if(keys.some(k=>text.includes(k))) return map[pattern];
+  }
+  const def={
+    lv:'Interesants jautājums! 🤔\n\nSazinieties ar mums tieši:\n📧 aiboostpro.lv@gmail.com\n💬 WhatsApp: +371 22389028\n\nAtbildam tajā pašā dienā! 😊',
+    ru:'Интересный вопрос! 🤔\n\nСвяжитесь с нами:\n📧 aiboostpro.lv@gmail.com\n💬 WhatsApp: +371 22389028\n\nОтвечаем в тот же день! 😊',
+    en:'Great question! 🤔\n\nContact us directly:\n📧 aiboostpro.lv@gmail.com\n💬 WhatsApp: +371 22389028\n\nWe reply the same day! 😊'
+  };
+  return def[lang]||def.lv;
 }
 
-document.getElementById('chat-btn').onclick=toggleChat;
+function addMsg(text,from){
+  const d=document.createElement('div');
+  d.className='msg '+from;
+  d.textContent=text;
+  msgs.appendChild(d);
+  msgs.scrollTop=msgs.scrollHeight;
+}
+function showTyp(){
+  const d=document.createElement('div');
+  d.className='msg bot typing';d.id='typ';
+  d.textContent=UI[lang].typ;
+  msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;
+}
+function hideTyp(){const e=document.getElementById('typ');if(e)e.remove();}
 
-function addMessage(text,side){
-    const msg=document.createElement('div');
-    msg.className='msg '+side;
-    msg.textContent=text;
-    document.getElementById('chat-msgs').appendChild(msg);
-    const obj=document.getElementById("chat-msgs");
-    obj.scrollTop=obj.scrollHeight;
+async function send(text){
+  if(!text)text=inp.value.trim();
+  if(!text||waiting)return;
+  inp.value='';waiting=true;
+  addMsg(text,'user');
+  showTyp();
+
+  try{
+    const r=await fetch(' https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json',
+        'x-api-key': window.AKEY||'',
+        'anthropic-version':'2023-06-01',
+        'anthropic-dangerous-allow-browser':'true'
+      },
+      body:JSON.stringify({
+        model:'claude-haiku-4-5-20251001',
+        max_tokens:600,
+        system:SYS,
+        messages:[{role:'user',content:text}]
+      })
+    });
+    if(r.ok){
+      const d=await r.json();
+      hideTyp();addMsg(d.content[0].text,'bot');
+    } else { throw new Error(); }
+  } catch(e){
+    hideTyp();addMsg(getFallback(text),'bot');
+  }
+  waiting=false;
 }
 
-function sendMessage(){
-    const input=document.getElementById('chat-input');
-    const text=input.value.trim();
-    if(!text)return;
-
-    addMessage(text,'user');
-    input.value='';
-
-    setTimeout(()=>{
-        if(text.toLowerCase().includes("cena") || text.toLowerCase().includes("maksā")){
-            addMessage("Čatbotu izveide sākas no 150€, bet sociālo tīklu vadība no 200€/mēn. Pirmā konsultācija ir bezmaksas!",'bot');
-        }else{
-            addMessage("Paldies par jautājumu! Lai saņemtu personalizētu piedāvājumu, rakstiet WhatsApp +371 22389028",'bot');
-        }
-    },800);
+function setLang(l,btn){
+  lang=l;
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  inp.placeholder=UI[l].ph;
+  renderQ();
+  msgs.innerHTML='';
+  setTimeout(()=>addMsg(UI[l].hi,'bot'),300);
 }
 
+function renderQ(){
+  const c=document.getElementById('chat-quick');c.innerHTML='';
+  UI[lang].q.forEach(q=>{
+    const b=document.createElement('button');
+    b.className='quick-btn';b.textContent=q;
+    b.onclick=()=>{addMsg(q,'user');showTyp();setTimeout(()=>{hideTyp();addMsg(getFallback(q),'bot');},600);};
+    c.appendChild(b);
+  });
+}
+
+document.getElementById('chat-btn').onclick=()=>{
+  const w=document.getElementById('chat-window');
+  const open=w.style.display==='flex';
+  w.style.display=open?'none':'flex';
+  w.style.flexDirection='column';
+  if(!open&&msgs.children.length===0){renderQ();setTimeout(()=>addMsg(UI[lang].hi,'bot'),300);}
+};
+document.getElementById('chat-close').onclick=()=>{document.getElementById('chat-window').style.display='none';};
+document.getElementById('chat-send').onclick=()=>send('');
+inp.addEventListener('keypress',e=>{if(e.key==='Enter')send('');});
 </script>
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src=' https://embed.tawk.to/698a4e0b55a5d71c35acb854/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
 
 </body>
 </html>

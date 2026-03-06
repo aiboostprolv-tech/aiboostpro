@@ -2,7 +2,11 @@
   publish = "."
 
 [build.processing]
-  skip_processing = true
+  skip_processing = false
+
+[build.processing.html]
+  pretty_urls = false
+  email_obfuscation = false
 
 [build.processing.css]
   bundle = false
@@ -12,10 +16,5 @@
   bundle = false
   minify = false
 
-[build.processing.html]
-  pretty_urls = false
-
 [build.processing.images]
   compress = false
-[build.processing.html]
-  email_obfuscation = false

@@ -1,0 +1,64 @@
+# robots.txt — aiboostpro.lv
+# Mērķis: atļaut gan parastajiem meklētājiem, gan AI robotiem indeksēt lapu.
+
+# --- Parastie meklētāji ---
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# --- AI roboti (svarīgi, lai parādītos ChatGPT, Claude, Perplexity, Gemini atbildēs) ---
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# --- Visi pārējie ---
+User-agent: *
+Allow: /
+
+Sitemap: https://aiboostpro.lv/sitemap.xml

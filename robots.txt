@@ -62,3 +62,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://aiboostpro.lv/sitemap.xml
+

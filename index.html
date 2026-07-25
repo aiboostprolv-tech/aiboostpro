@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="lv">
 <head>
@@ -278,6 +279,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content
 .mobile-menu a:last-child{color:var(--accent);font-weight:600;border:none;}
 
 .hero{min-height:100vh;display:flex;align-items:center;padding:7rem 3rem 4rem;position:relative;overflow:hidden;}
+#particles-bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:0.55;}
+body>nav,body>main,body>footer,body>#wa-btn,body>#chat-btn,body>#chat-window,body>.back-to-top,body>#cookie-banner,body>.mobile-menu{position:relative;z-index:1;}
+body>nav{z-index:200;}
+.hero,.section-wrap,.why-section,.testimonials-section,.contact-section,.strip{position:relative;}
 .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 80% 50%,rgba(0,229,160,0.08),transparent 70%),radial-gradient(ellipse 40% 40% at 20% 80%,rgba(0,102,255,0.08),transparent 60%);pointer-events:none;}
 .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;}
 .hero-content{position:relative;max-width:1100px;margin:0 auto;width:100%;display:grid;grid-template-columns:1.05fr 0.95fr;gap:3rem;align-items:center;}
@@ -511,10 +516,12 @@ html{scroll-behavior:auto;}
 .demo-msg,.demo-foot{opacity:1;transform:none;}
 .demo-typing{display:none;}
 .logo-bot,.bot-orb,.bot-eye,.bot-scan{animation:none!important;}
+#particles-bg{display:none;}
 }
 </style>
 </head>
 <body>
+<canvas id="particles-bg" aria-hidden="true"></canvas>
 <a href="#main-content" class="skip-link">Pāriet uz saturu</a>
 
 <nav>
@@ -1014,13 +1021,7 @@ Informācija ir vispārīga un var mainīties. Atbalsta programmu pieejamība, a
 <a href="https://www.linkedin.com/company/aiboostpro" target="_blank" rel="noopener" class="contact-item">LinkedIn</a>
 </div>
 
-<!-- ============================================================
-     KONTAKTFORMA
-     ⚠️ OBLIGĀTI: aizvieto FORMSPREE_ID ar savu ID no formspree.io
-     Pareizais formāts: https://formspree.io/f/xxxxxxxx
-     Pēc nomaiņas aizpildi formu pats un pārbaudi, vai e-pasts pienāk.
-     ============================================================ -->
-<form class="contact-form" id="contactForm" action="https://formspree.io/f/FORMSPREE_ID" method="POST">
+<form class="contact-form" id="contactForm" action="https://formspree.io/f/xdaqpwok" method="POST">
 <input type="text" name="name" placeholder="Vārds" required autocomplete="name">
 <input type="email" name="email" placeholder="E-pasts" required autocomplete="email">
 <input type="tel" name="phone" placeholder="Tālrunis (nav obligāti)" autocomplete="tel">
@@ -1192,7 +1193,7 @@ function sendViaWhatsApp(){
 form.addEventListener("submit", function(e){
   e.preventDefault();
   if (!form.checkValidity()) { form.reportValidity(); return; }
-  if (form.action.indexOf("FORMSPREE_ID") !== -1) {
+  if (form.action.indexOf("xdaqpwok_NOTSET") !== -1) {
     sendViaWhatsApp();
     return;
   }
@@ -1364,6 +1365,83 @@ Array.prototype.forEach.call(document.querySelectorAll(".lang-btn"), function(bt
   });
 });
 
+})();
+
+/* ---------- Fona daļiņas ---------- */
+(function(){
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduce) return;
+  var cv = document.getElementById("particles-bg");
+  if (!cv) return;
+  var ctx = cv.getContext("2d");
+  var W, H, DPR, parts, raf, linkDist;
+
+  function isMobile(){ return window.innerWidth < 768; }
+
+  function build(){
+    DPR = Math.min(window.devicePixelRatio || 1, 2);
+    W = cv.width = Math.floor(window.innerWidth * DPR);
+    H = cv.height = Math.floor(window.innerHeight * DPR);
+    cv.style.width = window.innerWidth + "px";
+    cv.style.height = window.innerHeight + "px";
+    var count = isMobile() ? 34 : 70;
+    linkDist = (isMobile() ? 110 : 150) * DPR;
+    parts = [];
+    for (var i = 0; i < count; i++){
+      parts.push({
+        x: Math.random() * W,
+        y: Math.random() * H,
+        vx: (Math.random() - 0.5) * 0.28 * DPR,
+        vy: (Math.random() - 0.5) * 0.28 * DPR,
+        r: (Math.random() * 1.6 + 1.0) * DPR,
+        c: Math.random() > 0.5 ? "0,229,160" : "77,138,255"
+      });
+    }
+  }
+
+  function frame(){
+    ctx.clearRect(0, 0, W, H);
+    for (var i = 0; i < parts.length; i++){
+      var p = parts[i];
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > W) p.vx *= -1;
+      if (p.y < 0 || p.y > H) p.vy *= -1;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = "rgba(" + p.c + ",0.9)";
+      ctx.fill();
+    }
+    for (var a = 0; a < parts.length; a++){
+      for (var b = a + 1; b < parts.length; b++){
+        var dx = parts[a].x - parts[b].x, dy = parts[a].y - parts[b].y;
+        var d = Math.sqrt(dx * dx + dy * dy);
+        if (d < linkDist){
+          ctx.beginPath();
+          ctx.moveTo(parts[a].x, parts[a].y);
+          ctx.lineTo(parts[b].x, parts[b].y);
+          ctx.strokeStyle = "rgba(0,229,160," + (0.14 * (1 - d / linkDist)) + ")";
+          ctx.lineWidth = DPR;
+          ctx.stroke();
+        }
+      }
+    }
+    raf = requestAnimationFrame(frame);
+  }
+
+  build();
+  frame();
+
+  var t;
+  window.addEventListener("resize", function(){
+    clearTimeout(t);
+    t = setTimeout(function(){ cancelAnimationFrame(raf); build(); frame(); }, 250);
+  });
+
+  // aptur, kad cilne nav aktīva — taupa bateriju
+  document.addEventListener("visibilitychange", function(){
+    if (document.hidden){ cancelAnimationFrame(raf); }
+    else { cancelAnimationFrame(raf); frame(); }
+  });
 })();
 </script>
 </body>

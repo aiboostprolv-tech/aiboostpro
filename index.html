@@ -454,13 +454,13 @@ footer span{color:var(--accent);}
 
 #wa-btn{position:fixed;bottom:20px;left:20px;background:#25D366;color:#fff;padding:12px 18px;border-radius:30px;font-weight:600;text-decoration:none;z-index:9990;font-size:0.85rem;display:flex;align-items:center;gap:0.5rem;box-shadow:0 4px 15px rgba(37,211,102,0.4);transition:transform 0.2s;}
 #wa-btn:hover{transform:translateY(-3px);}
-.back-to-top{position:fixed;bottom:150px;right:30px;background:rgba(255,255,255,0.1);color:#fff;border:1px solid rgba(255,255,255,0.2);width:40px;height:40px;border-radius:50%;font-size:1.1rem;cursor:pointer;opacity:0;transition:opacity 0.3s,transform 0.2s;pointer-events:none;z-index:998;}
+.back-to-top{position:fixed;bottom:86px;right:28px;background:rgba(255,255,255,0.1);color:#fff;border:1px solid rgba(255,255,255,0.2);width:40px;height:40px;border-radius:50%;font-size:1.1rem;cursor:pointer;opacity:0;transition:opacity 0.3s,transform 0.2s;pointer-events:none;z-index:998;}
 .back-to-top.visible{opacity:1;pointer-events:auto;}
 .back-to-top:hover{transform:translateY(-3px);background:var(--accent);color:#000;border-color:var(--accent);}
 
-#chat-btn{position:fixed;bottom:90px;right:30px;background:var(--accent);color:#000;padding:0.75rem 1.3rem;border-radius:50px;cursor:pointer;z-index:9991;font-weight:700;font-size:0.85rem;box-shadow:0 0 20px rgba(0,229,160,0.35);display:flex;align-items:center;gap:0.5rem;border:none;font-family:"DM Sans",sans-serif;transition:transform 0.2s;}
+#chat-btn{position:fixed;bottom:24px;right:24px;background:var(--accent);color:#000;padding:0.75rem 1.3rem;border-radius:50px;cursor:pointer;z-index:9991;font-weight:700;font-size:0.85rem;box-shadow:0 0 20px rgba(0,229,160,0.35);display:flex;align-items:center;gap:0.5rem;border:none;font-family:"DM Sans",sans-serif;transition:transform 0.2s;}
 #chat-btn:hover{transform:translateY(-3px);}
-#chat-window{position:fixed;bottom:150px;right:30px;width:340px;max-width:calc(100vw - 24px);height:480px;max-height:calc(100vh - 180px);background:#141414;border-radius:20px;display:none;flex-direction:column;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,0.6);z-index:9992;border:1px solid rgba(0,229,160,0.2);}
+#chat-window{position:fixed;bottom:86px;right:24px;width:340px;max-width:calc(100vw - 24px);height:480px;max-height:calc(100vh - 180px);background:#141414;border-radius:20px;display:none;flex-direction:column;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,0.6);z-index:9992;border:1px solid rgba(0,229,160,0.2);}
 #chat-window.open{display:flex;}
 #chat-header{background:linear-gradient(90deg,#00c87a,#00e5a0);color:#000;padding:0.9rem 1rem;display:flex;justify-content:space-between;align-items:center;font-family:"Syne",sans-serif;font-weight:700;font-size:0.9rem;}
 .chat-status{font-size:0.68rem;font-weight:400;opacity:0.8;}
@@ -503,10 +503,10 @@ nav{padding:0.85rem 1.2rem;}
 .contact-section{margin-bottom:4rem;padding:2.5rem 1.5rem;}
 .liaa-box{padding:1.5rem;}
 footer{padding:1.5rem 1.2rem;}
-#chat-window{right:8px;left:8px;width:auto;bottom:150px;}
-#chat-btn{right:16px;bottom:80px;}
-#wa-btn{left:16px;bottom:16px;}
-.back-to-top{bottom:145px;right:16px;}
+#chat-window{right:8px;left:8px;width:auto;bottom:80px;}
+#chat-btn{right:14px;bottom:16px;}
+#wa-btn{left:14px;bottom:16px;}
+.back-to-top{bottom:78px;right:16px;}
 }
 
 @media(prefers-reduced-motion:reduce){
@@ -1220,63 +1220,125 @@ form.addEventListener("submit", function(e){
 var CHAT = {
   lv: {
     placeholder: "Raksti jautājumu...",
-    greeting: "Sveiki! Varu pastāstīt par pakalpojumiem, cenām un termiņiem. Ko vēlies uzzināt?",
-    quick: ["Cenas", "Čatbots", "Mājaslapa", "Sociālie tīkli", "Termiņi", "Kontakti"],
-    fallback: "Uz šo labāk atbildēšu personīgi. Raksti uz WhatsApp +371 22389028 vai info@aiboostpro.lv — atbildu tajā pašā darba dienā.",
+    greeting: "Sveiki! Esmu AiBoost Pro asistents. Varu pastāstīt par pakalpojumiem, cenām, termiņiem un to, kā sākt. Ko vēlies uzzināt?",
+    quick: ["Cenas", "AI čatbots", "Mājaslapa", "Sociālie tīkli", "Termiņi", "Sākt darbu"],
+    fallback: "Šo labāk pārrunāsim personīgi — katrs uzņēmums ir savādāks. Uzraksti man WhatsApp +371 22389028 vai info@aiboostpro.lv, un atbildēšu tajā pašā darba dienā. Vari arī atstāt kontaktus formā zemāk.",
     db: [
-      {k:["sveik","labdien","labrīt","labvakar","čau"], a:"Sveiki! Ko vēlies uzzināt par pakalpojumiem?"},
-      {k:["paldies"], a:"Prieks palīdzēt! Ja rodas vēl jautājumi — raksti."},
-      {k:["cen","maksā","cik"], a:"Cenas bez PVN:\n• AI čatbots — no 150 € vienreizēji\n• Landing lapa — no 250 €\n• Vairāku lapu mājaslapa — 450–850 €\n• Sociālie tīkli — no 80 €/mēn\n• SEO — no 300 €/mēn\n• Konsultācija — 60 €/h\n\nPirmā konsultācija bez maksas."},
-      {k:["čatbot","catbot","bots","chatbot"], a:"AI čatbots atbild klientiem 24/7 latviešu, krievu vai angļu valodā. Tas mācās no tava uzņēmuma satura, tāpēc atbildes ir konkrētas.\n\nCena no 150 € vienreizēji. Ieviešana 1–2 nedēļas."},
-      {k:["mājaslap","majaslap","lapa","vietne","landing"], a:"Landing lapa ar čatbotu — no 250 €, gatava 3–7 dienās.\nVairāku lapu mājaslapa ar galeriju un blogu — 450–850 €.\nKatra papildu valoda +200 €.\n\nPiemērs: rujienasseniorumaja.lv"},
-      {k:["social","sociāl","instagram","facebook","tiktok","soctīkl"], a:"Sociālo tīklu pārvaldība:\n• Starter 80 €/mēn — 8–12 ieraksti, 1 platforma\n• Growth 200–300 €/mēn — 20–30 ieraksti, 2–3 platformas\n• Performance no 400 €/mēn — visas platformas\n\nKatrā paketē:\n• Satura plāns un ieraksti\n• Teksti un hashtagi\n• Komentāru moderācija\n• Ikmēneša atskaite\n\nInstagram, Facebook, TikTok."},
-      {k:["seo","google","meklē"], a:"SEO no 300 €/mēn: tehniskā optimizācija, atslēgvārdu izpēte, saturs un ikmēneša atskaite par pozīcijām."},
-      {k:["cik ilgi","termiņ","ātri","laik"], a:"Landing lapa ar čatbotu — 3–7 darba dienas.\nVairāku lapu mājaslapa vairākās valodās — 2–4 nedēļas.\nČatbota ieviešana atsevišķi — 1–2 nedēļas."},
-      {k:["valod","krievu","angļu","latvieš"], a:"Strādāju latviešu, krievu un angļu valodā. Čatboti un saturs var būt visās trīs valodās vienlaikus."},
-      {k:["kontakt","whatsapp","zvan","e-pas","epast","raksti"], a:"Kontakti:\n• WhatsApp: +371 22389028\n• E-pasts: info@aiboostpro.lv\n\nAtbildu tajā pašā darba dienā."},
-      {k:["konsultāc","bezmaksas","tikšan"], a:"Pirmā konsultācija ir bez maksas un bez saistībām. Raksti uz WhatsApp +371 22389028 vai aizpildi formu lapas apakšā."},
-      {k:["atbalst","grant","liaa","finansē"], a:"Latvijā periodiski tiek atvērtas digitalizācijas atbalsta programmas maziem uzņēmumiem. Varu pārbaudīt, vai kāda pašlaik ir atvērta un vai tu tai atbilsti. Aktuālā informācija: liaa.gov.lv"},
-      {k:["gdpr","dati","drošīb","privātum"], a:"Dati tiek apstrādāti atbilstoši GDPR. Mājaslapā uzstādu sīkdatņu paziņojumu un privātuma politiku. Sīkāk: aiboostpro.lv/privacy.html"}
+      {k:["sveik","labdien","labrit","labvakar","cau","hei","halo"], w:1, a:"Sveiki! Prieks tevi redzēt. Ko vēlies uzzināt — cenas, pakalpojumus vai kā sākt?"},
+      {k:["paldies","super","malaci","forsi","labi"], a:"Prieks palīdzēt! Ja rodas vēl kādi jautājumi, droši raksti. 🙂"},
+      {k:["ka tev iet","ka klajas","kas jauns"], a:"Man viss lieliski, paldies! Esmu gatavs palīdzēt ar visu, kas saistīts ar AI čatbotiem, mājaslapām un mārketingu. Ar ko sākam?"},
+
+      {k:["cena","cenas","maksa","cik maksa","cik izmaksa","izmaksas","budzets","tarifi"], w:2, a:"Cenas (bez PVN):\n\n• AI čatbots — no 150 € vienreizēji\n• Landing lapa — no 250 €\n• Vairāku lapu mājaslapa — 450–850 €\n• Sociālie tīkli — no 80 €/mēn\n• SEO — no 300 €/mēn\n• Konsultācija — 60 €/h\n\nPirmā konsultācija ir bez maksas. Par ko gribi uzzināt sīkāk?"},
+      {k:["lets","dargi","dargs","atlaide","lētāk","letak"], a:"Saprotu, ka budžets ir svarīgs. Tāpēc cenas sākas zemu (soctīkli no 80 €/mēn), un pirmā konsultācija ir bez maksas — varam kopā atrast risinājumu tavam budžetam. Cenu nosaku pēc reālā apjoma, ne fiksētu likmi visiem."},
+
+      {k:["catbot","chatbot","bots","asistent","ai bots","robot"], w:2, a:"AI čatbots atbild taviem klientiem 24/7 — arī naktī un brīvdienās. Tas mācās no tava uzņēmuma satura, tāpēc atbildes ir konkrētas, ne vispārīgas. Var runāt latviešu, krievu un angļu valodā.\n\nCena no 150 € vienreizēji, ieviešana 1–2 nedēļas. Gribi redzēt piemēru?"},
+      {k:["piemer","paraug","demo","redzet","parada"], a:"Noteikti! Apskati rujienasseniorumaja.lv — trilingvāla mājaslapa ar AI čatbotu, ko izveidoju senioru aprūpes centram. Čatbots tur atbild uz jautājumiem par pakalpojumiem latviešu, krievu un angļu valodā."},
+
+      {k:["majaslapa","majaslap","vietne","landing","webate","web","saits","mājas lapa"], w:2, a:"Piedāvāju divus variantus:\n\n• Landing lapa (viena lapa) ar čatbotu — no 250 €, gatava 3–7 dienās\n• Vairāku lapu mājaslapa ar galeriju, blogu un kontaktformu — 450–850 €\n\nKatra papildu valoda +200 €. Visas lapas ir mobilas un ar SEO pamatiem. Piemērs: rujienasseniorumaja.lv"},
+
+      {k:["social","socail","instagram","insta","facebook","fb","tiktok","tik tok","soctikl","soc tikl","socialie"], w:2, a:"Sociālo tīklu pārvaldība trīs paketēs:\n\n• Starter 80 €/mēn — 8–12 ieraksti, 1 platforma\n• Growth 200–300 €/mēn — 20–30 ieraksti, 2–3 platformas\n• Performance no 400 €/mēn — visas platformas, arī TikTok\n\nKatrā: satura plāns, teksti, hashtagi, komentāru moderācija un ikmēneša atskaite. Kura pakete tevi interesē?"},
+      {k:["saturs","satura","posti","ieraksti","raksti bloga","video","reels"], a:"Veidoju saturu, kas piesaista: ierakstus, video scenārijus, reklāmas tekstus un rakstus. Piemērs — senioru aprūpes centram viens video sasniedza 43 000+ skatījumu. Saturs pieejams latviešu, krievu un angļu valodā."},
+
+      {k:["seo","google","meklet","meklesana","ranga","pozicij","atrast google"], w:1, a:"SEO no 300 €/mēn ietver:\n• Tehnisko optimizāciju\n• Atslēgvārdu izpēti\n• Satura plānu\n• Ikmēneša atskaiti par pozīcijām Google\n\nMērķis — lai tevi atrod cilvēki, kas Latvijā tiešām meklē tavus pakalpojumus."},
+
+      {k:["cik ilgi","termin","atri","laiks","kad gatav","cik dienas","cik ilga"], w:1, a:"Termiņi:\n\n• Landing lapa ar čatbotu — 3–7 darba dienas\n• Vairāku lapu mājaslapa vairākās valodās — 2–4 nedēļas\n• Čatbota ieviešana atsevišķi — 1–2 nedēļas\n\nĀtrums atkarīgs arī no tā, cik ātri saņemu materiālus."},
+
+      {k:["valod","krievu","anglu","latvies","divval","multiling","bilingv"], a:"Strādāju latviešu, krievu un angļu valodā. Čatboti un saturs var darboties visās trīs valodās vienlaikus — tas Latvijā ir liels pluss, jo daudzi klienti meklē krieviski, bet lielākā daļa lapu ir tikai latviski."},
+
+      {k:["kontakt","whatsapp","zvan","telefon","e-pas","epast","pasts","sazin","numur"], w:1, a:"Sazinies, kā ērtāk:\n\n• WhatsApp / tālr.: +371 22389028\n• E-pasts: info@aiboostpro.lv\n\nAtbildu tajā pašā darba dienā latviešu, krievu vai angļu valodā."},
+
+      {k:["sakt","sākt","sakums","ka strada","process","ka noris","pirmais solis","gribu","pieteik","pasut"], w:2, a:"Sākt ir vienkārši:\n\n1. Bezmaksas saruna — izstāsti, ko vēlies\n2. Sagatavoju piedāvājumu ar cenu un termiņu\n3. Sākam darbu, kad tev ērti\n\nPirmais solis — uzraksti WhatsApp +371 22389028 vai aizpildi formu zemāk. Ko tu vēlies izveidot?"},
+      {k:["konsultac","bezmaksas","tiksan","runat","parunat"], w:1, a:"Pirmā konsultācija ir pilnīgi bez maksas un bez saistībām. Parunāsim par tavu uzņēmumu un ko vēlies uzlabot. Uzraksti WhatsApp +371 22389028 vai aizpildi formu lapas apakšā."},
+
+      {k:["atbalst","grant","liaa","finanse","dotacij","es fond","projekts nauda"], a:"Latvijā periodiski atveras digitalizācijas atbalsta programmas maziem uzņēmumiem, kas var segt daļu izmaksu par čatbotiem un mājaslapām. Varu bez maksas pārbaudīt, vai kāda pašlaik ir atvērta un vai tu tai atbilsti. Aktuālā info: liaa.gov.lv"},
+
+      {k:["gdpr","dati","drosib","privatum","sikdatn","personas dat"], a:"Datu drošība ir svarīga. Visi dati tiek apstrādāti atbilstoši GDPR, mājaslapā uzstādu sīkdatņu paziņojumu un privātuma politiku. Sīkāk: aiboostpro.lv/privacy.html"},
+
+      {k:["kas tu","kas esi","par tevi","par uznemumu","par aiboost","kristine","kristīne"], a:"AiBoost Pro ir AI un digitālā mārketinga aģentūra Latvijā. Aiz tās esmu Kristīne — strādāju ar tirgus izpēti un analītiku, un palīdzu maziem uzņēmumiem ieviest AI risinājumus par cenu, ko var atļauties. Tu runā tieši ar mani, ne ar projektu vadītāju."},
+
+      {k:["autoserviss","frizetava","salons","restorans","veikals","medicin","zobarst","nekustam","majas"], a:"Jā, strādāju ar dažādām nozarēm! AI čatbots un mājaslapa noder visur, kur klienti uzdod līdzīgus jautājumus — pieraksts, cenas, darba laiki. Izstāsti par savu biznesu, un pateikšu, kā tieši varētu palīdzēt."}
     ]
   },
   ru: {
     placeholder: "Напишите вопрос...",
-    greeting: "Здравствуйте! Расскажу об услугах, ценах и сроках. Что вас интересует?",
-    quick: ["Цены", "Чат-бот", "Сайт", "Соцсети", "Сроки", "Контакты"],
-    fallback: "На это лучше отвечу лично. Напишите в WhatsApp +371 22389028 или на info@aiboostpro.lv — отвечаю в тот же рабочий день.",
+    greeting: "Здравствуйте! Я ассистент AiBoost Pro. Расскажу об услугах, ценах, сроках и как начать. Что вас интересует?",
+    quick: ["Цены", "AI чат-бот", "Сайт", "Соцсети", "Сроки", "Как начать"],
+    fallback: "Это лучше обсудить лично — каждый бизнес индивидуален. Напишите мне в WhatsApp +371 22389028 или на info@aiboostpro.lv, отвечу в тот же рабочий день. Можно также оставить контакты в форме ниже.",
     db: [
-      {k:["привет","здравств","добрый"], a:"Здравствуйте! Что хотите узнать?"},
-      {k:["спасибо"], a:"Рада помочь! Если появятся вопросы — пишите."},
-      {k:["цен","стоит","сколько"], a:"Цены без НДС:\n• AI чат-бот — от 150 € разово\n• Landing-страница — от 250 €\n• Многостраничный сайт — 450–850 €\n• Соцсети — от 80 €/мес\n• SEO — от 300 €/мес\n• Консультация — 60 €/час\n\nПервая консультация бесплатно."},
-      {k:["чат","бот"], a:"AI чат-бот отвечает клиентам 24/7 на латышском, русском или английском. Обучается на содержании вашего сайта.\n\nОт 150 € разово. Внедрение 1–2 недели."},
-      {k:["сайт","страниц","лендинг"], a:"Landing-страница с чат-ботом — от 250 €, готова за 3–7 дней.\nМногостраничный сайт с галереей и блогом — 450–850 €.\nКаждый доп. язык +200 €.\n\nПример: rujienasseniorumaja.lv"},
-      {k:["соцсет","instagram","facebook","tiktok","инстаграм"], a:"Ведение соцсетей:\n• Starter 80 €/мес — 8–12 постов, 1 платформа\n• Growth 200–300 €/мес — 20–30 постов, 2–3 платформы\n• Performance от 400 €/мес — все платформы\n\nВ каждом пакете:\n• Контент-план и посты\n• Тексты и хештеги\n• Модерация комментариев\n• Ежемесячный отчёт"},
-      {k:["seo","гугл","поиск"], a:"SEO от 300 €/мес: техническая оптимизация, подбор ключевых слов, контент и отчёт по позициям."},
-      {k:["срок","быстро","долго","когда"], a:"Landing-страница — 3–7 рабочих дней.\nМногостраничный сайт на нескольких языках — 2–4 недели.\nЧат-бот отдельно — 1–2 недели."},
-      {k:["язык","русск","английск","латышск"], a:"Работаю на латышском, русском и английском. Чат-боты и контент могут быть на всех трёх языках одновременно."},
-      {k:["контакт","whatsapp","звон","почт","напис"], a:"Контакты:\n• WhatsApp: +371 22389028\n• E-mail: info@aiboostpro.lv\n\nОтвечаю в тот же рабочий день."},
-      {k:["консультац","бесплат","встреч"], a:"Первая консультация бесплатна и ни к чему не обязывает. Напишите в WhatsApp +371 22389028."},
-      {k:["gdpr","данн","безопасн"], a:"Данные обрабатываются в соответствии с GDPR. Подробнее: aiboostpro.lv/privacy.html"}
+      {k:["привет","здравств","добрый","хай","салют"], w:1, a:"Здравствуйте! Рада вас видеть. Что хотите узнать — цены, услуги или как начать?"},
+      {k:["спасибо","супер","отлично","класс"], a:"Рада помочь! Если появятся вопросы — пишите. 🙂"},
+      {k:["как дела","как ты","что нового"], a:"У меня всё отлично, спасибо! Готова помочь со всем, что связано с AI чат-ботами, сайтами и маркетингом. С чего начнём?"},
+
+      {k:["цена","цены","стоит","сколько","стоимость","бюджет","тариф","прайс"], w:2, a:"Цены (без НДС):\n\n• AI чат-бот — от 150 € разово\n• Landing-страница — от 250 €\n• Многостраничный сайт — 450–850 €\n• Соцсети — от 80 €/мес\n• SEO — от 300 €/мес\n• Консультация — 60 €/час\n\nПервая консультация бесплатна. О чём рассказать подробнее?"},
+      {k:["дорого","дёшево","дешево","скидк","подешевле"], a:"Понимаю, бюджет важен. Поэтому цены начинаются невысоко (соцсети от 80 €/мес), а первая консультация бесплатна — вместе найдём решение под ваш бюджет. Цену определяю по реальному объёму, а не фиксированную для всех."},
+
+      {k:["чат-бот","чатбот","бот","ассистент","робот"], w:2, a:"AI чат-бот отвечает вашим клиентам 24/7 — ночью и в выходные тоже. Он обучается на содержании вашей компании, поэтому ответы конкретные. Говорит на латышском, русском и английском.\n\nЦена от 150 € разово, внедрение 1–2 недели. Хотите увидеть пример?"},
+      {k:["пример","образец","демо","показать","посмотреть"], a:"Конечно! Посмотрите rujienasseniorumaja.lv — трёхъязычный сайт с AI чат-ботом, который я сделала для центра ухода за пожилыми. Чат-бот отвечает на вопросы об услугах на латышском, русском и английском."},
+
+      {k:["сайт","сайта","страниц","лендинг","веб"], w:2, a:"Предлагаю два варианта:\n\n• Landing-страница с чат-ботом — от 250 €, готова за 3–7 дней\n• Многостраничный сайт с галереей, блогом и формой — 450–850 €\n\nКаждый доп. язык +200 €. Все сайты адаптивные и с базовым SEO. Пример: rujienasseniorumaja.lv"},
+
+      {k:["соцсет","инстаграм","инста","фейсбук","тикток","tiktok","instagram","facebook"], w:2, a:"Ведение соцсетей в трёх пакетах:\n\n• Starter 80 €/мес — 8–12 постов, 1 платформа\n• Growth 200–300 €/мес — 20–30 постов, 2–3 платформы\n• Performance от 400 €/мес — все платформы, включая TikTok\n\nВ каждом: контент-план, тексты, хештеги, модерация и ежемесячный отчёт. Какой пакет интересует?"},
+      {k:["контент","посты","видео","reels","статьи"], a:"Создаю контент, который привлекает: посты, сценарии видео, рекламные тексты и статьи. Пример — для центра ухода одно видео набрало 43 000+ просмотров. Контент на латышском, русском и английском."},
+
+      {k:["seo","гугл","google","поиск","позиц","найти в гугл"], w:1, a:"SEO от 300 €/мес включает:\n• Техническую оптимизацию\n• Подбор ключевых слов\n• Контент-план\n• Ежемесячный отчёт о позициях в Google\n\nЦель — чтобы вас находили люди, которые действительно ищут ваши услуги."},
+
+      {k:["сколько времени","срок","быстро","когда готов","сколько дней"], w:1, a:"Сроки:\n\n• Landing-страница с чат-ботом — 3–7 рабочих дней\n• Многостраничный сайт на нескольких языках — 2–4 недели\n• Чат-бот отдельно — 1–2 недели\n\nСкорость зависит и от того, как быстро я получу материалы."},
+
+      {k:["язык","русск","английск","латышск","двуязыч","многоязыч"], a:"Работаю на латышском, русском и английском. Чат-боты и контент могут работать на всех трёх языках одновременно — в Латвии это большой плюс, ведь многие ищут по-русски, а большинство сайтов только на латышском."},
+
+      {k:["контакт","whatsapp","звон","телефон","почт","связ","номер","email"], w:1, a:"Свяжитесь удобным способом:\n\n• WhatsApp / тел.: +371 22389028\n• E-mail: info@aiboostpro.lv\n\nОтвечаю в тот же рабочий день на латышском, русском или английском."},
+
+      {k:["начать","начало","как работа","процесс","первый шаг","хочу","заказ"], w:2, a:"Начать просто:\n\n1. Бесплатный разговор — расскажите, что хотите\n2. Готовлю предложение с ценой и сроком\n3. Начинаем, когда вам удобно\n\nПервый шаг — напишите в WhatsApp +371 22389028 или заполните форму ниже. Что хотите создать?"},
+      {k:["консультац","бесплатн","встреч","поговорить"], w:1, a:"Первая консультация полностью бесплатна и ни к чему не обязывает. Поговорим о вашем бизнесе и о том, что хотите улучшить. Напишите в WhatsApp +371 22389028 или заполните форму внизу."},
+
+      {k:["поддержк","грант","liaa","финанс","дотаци","евросоюз","проект деньги"], a:"В Латвии периодически открываются программы поддержки цифровизации для малого бизнеса, которые могут покрыть часть расходов на чат-ботов и сайты. Могу бесплатно проверить, открыта ли сейчас какая-то и подходите ли вы. Актуальная инфо: liaa.gov.lv"},
+
+      {k:["gdpr","данн","безопасн","конфиденц","cookie","куки"], a:"Безопасность данных важна. Все данные обрабатываются в соответствии с GDPR, на сайте устанавливаю уведомление о cookie и политику конфиденциальности. Подробнее: aiboostpro.lv/privacy.html"},
+
+      {k:["кто ты","кто вы","о тебе","о компании","о aiboost","кристине"], a:"AiBoost Pro — агентство AI и цифрового маркетинга в Латвии. За ним стою я, Кристине — занимаюсь исследованием рынка и аналитикой, помогаю малому бизнесу внедрять AI по доступной цене. Вы общаетесь напрямую со мной, а не с менеджером проекта."},
+
+      {k:["автосервис","парикмахер","салон","ресторан","магазин","медицин","стоматолог","недвижим"], a:"Да, работаю с разными отраслями! AI чат-бот и сайт полезны везде, где клиенты задают похожие вопросы — запись, цены, часы работы. Расскажите о своём бизнесе, и я подскажу, чем именно могу помочь."}
     ]
   },
   en: {
     placeholder: "Type your question...",
-    greeting: "Hello! I can tell you about services, pricing and timelines. What would you like to know?",
-    quick: ["Pricing", "Chatbot", "Website", "Social media", "Timeline", "Contact"],
-    fallback: "I'd rather answer that personally. Write to WhatsApp +371 22389028 or info@aiboostpro.lv — I reply the same working day.",
+    greeting: "Hello! I'm the AiBoost Pro assistant. I can tell you about services, pricing, timelines and how to get started. What would you like to know?",
+    quick: ["Pricing", "AI chatbot", "Website", "Social media", "Timeline", "Get started"],
+    fallback: "This is best discussed personally — every business is different. Message me on WhatsApp +371 22389028 or info@aiboostpro.lv and I'll reply the same working day. You can also leave your details in the form below.",
     db: [
-      {k:["hello","hi","hey","good morning"], a:"Hello! What would you like to know?"},
-      {k:["thank"], a:"Glad to help. Write anytime if more questions come up."},
-      {k:["price","cost","how much","pricing"], a:"Prices excluding VAT:\n• AI chatbot — from €150 one-time\n• Landing page — from €250\n• Multi-page website — €450–850\n• Social media — from €80/month\n• SEO — from €300/month\n• Consultation — €60/hour\n\nFirst consultation is free."},
-      {k:["chatbot","bot","chat"], a:"The AI chatbot answers customers 24/7 in Latvian, Russian or English. It learns from your own content, so answers are specific.\n\nFrom €150 one-time. Setup takes 1–2 weeks."},
-      {k:["website","site","landing","page"], a:"Landing page with chatbot — from €250, ready in 3–7 days.\nMulti-page website with gallery and blog — €450–850.\nEach additional language +€200.\n\nExample: rujienasseniorumaja.lv"},
-      {k:["social","instagram","facebook","tiktok"], a:"Social media management:\n• Starter €80/month — 8–12 posts, 1 platform\n• Growth €200–300/month — 20–30 posts, 2–3 platforms\n• Performance from €400/month — all platforms\n\nEvery package includes:\n• Content plan and posts\n• Copy and hashtags\n• Comment moderation\n• Monthly report"},
-      {k:["seo","google","search"], a:"SEO from €300/month: technical optimisation, keyword research, content and monthly ranking reports."},
-      {k:["how long","timeline","when","fast"], a:"Landing page — 3–7 working days.\nMulti-page multilingual website — 2–4 weeks.\nChatbot alone — 1–2 weeks."},
-      {k:["language","latvian","russian","english"], a:"I work in Latvian, Russian and English. Chatbots and content can run in all three at once."},
-      {k:["contact","whatsapp","email","call"], a:"Contact:\n• WhatsApp: +371 22389028\n• Email: info@aiboostpro.lv\n\nI reply the same working day."},
-      {k:["consult","free","meeting"], a:"The first consultation is free with no obligation. Write to WhatsApp +371 22389028."},
-      {k:["gdpr","data","privacy","secure"], a:"Data is processed in line with GDPR. More: aiboostpro.lv/privacy.html"}
+      {k:["hello","hi ","hey","good morning","good day"], w:1, a:"Hello! Great to see you. What would you like to know — pricing, services, or how to start?"},
+      {k:["thank","great","awesome","perfect","nice"], a:"Happy to help! If more questions come up, just ask. 🙂"},
+      {k:["how are you","whats new","what's new"], a:"I'm doing great, thanks! Ready to help with anything around AI chatbots, websites and marketing. Where shall we start?"},
+
+      {k:["price","cost","how much","pricing","budget","rate","quote"], w:2, a:"Prices (excluding VAT):\n\n• AI chatbot — from €150 one-off\n• Landing page — from €250\n• Multi-page website — €450–850\n• Social media — from €80/month\n• SEO — from €300/month\n• Consultation — €60/hour\n\nThe first consultation is free. What would you like details on?"},
+      {k:["expensive","cheap","discount","cheaper"], a:"I understand budget matters. That's why prices start low (social media from €80/month) and the first consultation is free — we'll find a solution that fits your budget. I set the price by the real scope, not a flat rate for everyone."},
+
+      {k:["chatbot","chat bot","bot","assistant","ai bot"], w:2, a:"An AI chatbot answers your customers 24/7 — at night and on weekends too. It learns from your own content, so answers are specific, not generic. It speaks Latvian, Russian and English.\n\nFrom €150 one-off, setup 1–2 weeks. Want to see an example?"},
+      {k:["example","sample","demo","show","see it"], a:"Sure! Take a look at rujienasseniorumaja.lv — a trilingual website with an AI chatbot I built for an elderly care centre. The chatbot answers questions about the services in Latvian, Russian and English."},
+
+      {k:["website","site","landing","web page","webpage"], w:2, a:"I offer two options:\n\n• Landing page with a chatbot — from €250, ready in 3–7 days\n• Multi-page website with gallery, blog and contact form — €450–850\n\nEach extra language +€200. All sites are mobile-friendly with SEO basics. Example: rujienasseniorumaja.lv"},
+
+      {k:["social","instagram","insta","facebook","tiktok","tik tok"], w:2, a:"Social media management in three packages:\n\n• Starter €80/month — 8–12 posts, 1 platform\n• Growth €200–300/month — 20–30 posts, 2–3 platforms\n• Performance from €400/month — all platforms, including TikTok\n\nEach includes: content plan, copy, hashtags, comment moderation and a monthly report. Which package interests you?"},
+      {k:["content","posts","video","reels","articles"], a:"I create content that attracts: posts, video scripts, ad copy and articles. For example — one video for the care centre reached 43,000+ views. Content in Latvian, Russian and English."},
+
+      {k:["seo","google","search","ranking","rank","found on google"], w:1, a:"SEO from €300/month includes:\n• Technical optimisation\n• Keyword research\n• Content plan\n• Monthly ranking reports\n\nThe goal — that you're found by people actually searching for your services."},
+
+      {k:["how long","timeline","fast","when ready","how many days"], w:1, a:"Timelines:\n\n• Landing page with chatbot — 3–7 working days\n• Multi-page multilingual website — 2–4 weeks\n• Chatbot alone — 1–2 weeks\n\nSpeed also depends on how quickly I receive materials."},
+
+      {k:["language","latvian","russian","english","bilingual","multilingual"], a:"I work in Latvian, Russian and English. Chatbots and content can run in all three at once — a big advantage in Latvia, where many people search in Russian but most sites are Latvian only."},
+
+      {k:["contact","whatsapp","call","phone","email","reach","number"], w:1, a:"Get in touch however suits you:\n\n• WhatsApp / phone: +371 22389028\n• Email: info@aiboostpro.lv\n\nI reply the same working day in Latvian, Russian or English."},
+
+      {k:["start","begin","how it works","process","first step","want to","order"], w:2, a:"Getting started is simple:\n\n1. Free chat — tell me what you need\n2. I prepare a quote with price and timeline\n3. We start whenever suits you\n\nFirst step — message WhatsApp +371 22389028 or fill in the form below. What would you like to build?"},
+      {k:["consult","free","meeting","talk"], w:1, a:"The first consultation is completely free with no obligation. We'll talk about your business and what you'd like to improve. Message WhatsApp +371 22389028 or fill in the form at the bottom."},
+
+      {k:["support","grant","liaa","funding","subsidy","eu fund"], a:"Latvia periodically opens digitalisation support programmes for small businesses that can cover part of the cost of chatbots and websites. I can check for free whether one is currently open and whether you qualify. Current info: liaa.gov.lv"},
+
+      {k:["gdpr","data","privacy","secure","cookie"], a:"Data security matters. All data is processed in line with GDPR, and I set up a cookie notice and privacy policy on the site. More: aiboostpro.lv/privacy.html"},
+
+      {k:["who are you","about you","about the company","about aiboost","kristine"], a:"AiBoost Pro is an AI and digital marketing agency in Latvia. Behind it is me, Kristīne — I work in market research and analytics, and help small businesses adopt AI at a price they can afford. You talk directly to me, not an account manager."},
+
+      {k:["car service","hairdress","salon","restaurant","shop","medical","dental","real estate"], a:"Yes, I work with all kinds of industries! An AI chatbot and website help anywhere customers ask similar questions — bookings, prices, opening hours. Tell me about your business and I'll suggest exactly how I could help."}
     ]
   }
 };
@@ -1291,9 +1353,10 @@ var chatQuick = document.getElementById("chat-quick");
 var lang = "lv";
 
 function detectLang(t){
+  // Kirilica = krievu; latviešu diakritika = latviešu; citādi ievēro pogu izvēli.
   if (/[\u0400-\u04FF]/.test(t)) return "ru";
   if (/[āčēģīķļņšūž]/i.test(t)) return "lv";
-  return lang;
+  return lang; // lietotāja izvēlētā valoda ar LV/RU/EN pogu
 }
 
 function addMsg(text, who){
@@ -1304,15 +1367,34 @@ function addMsg(text, who){
   chatMsgs.scrollTop = chatMsgs.scrollHeight;
 }
 
+function normalize(t){
+  // noņem diakritiku, lai "cik maksa" == "cik maksā"
+  return t.toLowerCase()
+    .replace(/[āàá]/g,"a").replace(/[čç]/g,"c").replace(/[ēèé]/g,"e")
+    .replace(/[ģ]/g,"g").replace(/[īìí]/g,"i").replace(/[ķ]/g,"k")
+    .replace(/[ļ]/g,"l").replace(/[ņ]/g,"n").replace(/[š]/g,"s")
+    .replace(/[ūùú]/g,"u").replace(/[ž]/g,"z");
+}
+
 function reply(text){
   var l = detectLang(text);
   var data = CHAT[l];
-  var t = text.toLowerCase();
+  var t = normalize(text);
+  var best = null, bestScore = 0;
   for (var i = 0; i < data.db.length; i++){
-    for (var j = 0; j < data.db[i].k.length; j++){
-      if (t.indexOf(data.db[i].k[j]) !== -1) return data.db[i].a;
+    var score = 0, item = data.db[i];
+    for (var j = 0; j < item.k.length; j++){
+      var kw = normalize(item.k[j]);
+      if (t.indexOf(kw) !== -1){
+        // garāks atslēgvārds = precīzāka atbilstība = vairāk punktu
+        score += kw.length > 4 ? 3 : 2;
+      }
     }
+    // "svars" ļauj prioritizēt svarīgas tēmas
+    if (score > 0) score += (item.w || 0);
+    if (score > bestScore){ bestScore = score; best = item; }
   }
+  if (best) return best.a;
   return data.fallback;
 }
 

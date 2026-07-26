@@ -232,7 +232,9 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap"></noscript>
 
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
@@ -334,7 +336,7 @@ body>nav{z-index:200;}
 .strip{background:var(--gray);border-top:1px solid rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.05);padding:1.5rem 3rem;}
 .strip-inner{max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:center;text-align:center;}
 .strip-item{flex:1;min-width:200px;padding:0.5rem;}
-.strip-item h3{font-family:"Syne",sans-serif;font-size:1.1rem;font-weight:800;color:var(--accent);margin-bottom:0.3rem;}
+.strip-item h2{font-family:"Syne",sans-serif;font-size:1.1rem;font-weight:800;color:var(--accent);margin-bottom:0.3rem;}
 .strip-item p{font-size:0.78rem;color:var(--muted);}
 
 .section-wrap{padding:5rem 3rem;max-width:1100px;margin:0 auto;}
@@ -394,7 +396,7 @@ body>nav{z-index:200;}
 .pc-consult:hover{background:rgba(0,229,160,0.07);}
 .extras-grid{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:1.8rem;}
 .extra-card{background:var(--gray);border:1px solid rgba(255,255,255,0.07);border-radius:13px;padding:1.2rem 1.4rem;width:240px;text-align:center;}
-.extra-card h4{font-family:"Syne",sans-serif;font-size:0.95rem;font-weight:700;margin-bottom:0.25rem;}
+.extra-card h3{font-family:"Syne",sans-serif;font-size:0.95rem;font-weight:700;margin-bottom:0.25rem;}
 .extra-card .ep{color:var(--accent);font-weight:700;font-size:1.15rem;margin:0.4rem 0 0.5rem;}
 .extra-card p{color:var(--muted);font-size:0.74rem;line-height:1.5;}
 .price-note{text-align:center;color:var(--muted);font-size:0.75rem;margin-top:1.5rem;line-height:1.7;}
@@ -403,7 +405,7 @@ body>nav{z-index:200;}
 .liaa-box::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#0066ff,#00e5a0);}
 .liaa-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-bottom:1.5rem;}
 .liaa-card{background:rgba(0,0,0,0.22);border-radius:12px;padding:1.1rem;}
-.liaa-card h4{font-weight:700;font-size:0.85rem;margin-bottom:0.6rem;}
+.liaa-card h3{font-weight:700;font-size:0.85rem;margin-bottom:0.6rem;}
 .liaa-card ul{list-style:none;display:flex;flex-direction:column;gap:0.35rem;}
 .liaa-card li{font-size:0.78rem;color:rgba(245,243,238,0.82);display:flex;gap:0.4rem;}
 .liaa-card li::before{content:"→";color:var(--accent);flex-shrink:0;}
@@ -482,10 +484,12 @@ footer span{color:var(--accent);}
 #chat-input::placeholder{color:rgba(255,255,255,0.3);}
 #chat-send{background:var(--accent);border:none;color:#000;padding:0 1rem;cursor:pointer;font-weight:700;font-size:1rem;}
 
-#cookie-banner{position:fixed;bottom:0;left:0;right:0;background:#17171c;border-top:1px solid rgba(0,229,160,0.2);padding:1rem 2rem;display:none;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;z-index:99999;font-size:0.8rem;color:var(--muted);}
+#cookie-banner{position:fixed;bottom:0;left:0;right:0;background:#17171c;border-top:1px solid rgba(0,229,160,0.2);padding:1rem 2rem;display:none;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;z-index:99999;font-size:0.8rem;color:#c9c9c4;}
 #cookie-banner.show{display:flex;}
+body.banner-open #wa-btn,body.banner-open #chat-btn{bottom:104px;}
+body.banner-open .back-to-top{bottom:166px;}
 #cookie-accept{background:var(--accent);color:#000;border:none;padding:0.5rem 1.3rem;border-radius:100px;font-weight:700;cursor:pointer;font-size:0.8rem;font-family:"DM Sans",sans-serif;}
-#cookie-decline{background:transparent;color:var(--muted);border:1px solid rgba(255,255,255,0.15);padding:0.5rem 1rem;border-radius:100px;cursor:pointer;font-size:0.8rem;font-family:"DM Sans",sans-serif;margin-left:0.4rem;}
+#cookie-decline{background:transparent;color:#c9c9c4;border:1px solid rgba(255,255,255,0.15);padding:0.5rem 1rem;border-radius:100px;cursor:pointer;font-size:0.8rem;font-family:"DM Sans",sans-serif;margin-left:0.4rem;}
 
 @media(max-width:768px){
 nav{padding:0.85rem 1.2rem;}
@@ -630,15 +634,15 @@ html{scroll-behavior:auto;}
 <section class="strip">
 <div class="strip-inner">
 <div class="strip-item">
-<h3>Atbildes bez gaidīšanas</h3>
+<h2>Atbildes bez gaidīšanas</h2>
 <p>Čatbots atbild uz biežākajiem jautājumiem jebkurā diennakts laikā, arī pēc darba laika</p>
 </div>
 <div class="strip-item">
-<h3>Divas valodas vienā lapā</h3>
+<h2>Divas valodas vienā lapā</h2>
 <p>Latviešu un krievu auditorija saņem saturu savā valodā bez atsevišķas aģentūras</p>
 </div>
 <div class="strip-item">
-<h3>Viens partneris visam</h3>
+<h2>Viens partneris visam</h2>
 <p>Mājaslapa, čatbots un sociālie tīkli no viena cilvēka — bez saskaņošanas starp trim pusēm</p>
 </div>
 </div>
@@ -854,17 +858,17 @@ html{scroll-behavior:auto;}
 
 <div class="extras-grid fade-up">
 <div class="extra-card">
-<h4>AI čatbots</h4>
+<h3>AI čatbots</h3>
 <div class="ep">No 150 €</div>
 <p>Vienreizēja izveide un integrācija mājaslapā vai sociālajos tīklos.</p>
 </div>
 <div class="extra-card">
-<h4>Mājaslapa</h4>
+<h3>Mājaslapa</h3>
 <div class="ep">250–850 €</div>
 <p>Landing lapa no 250 €. Vairāku lapu mājaslapa 450–850 €. Katra papildu valoda +200 €.</p>
 </div>
 <div class="extra-card">
-<h4>Konsultācija</h4>
+<h3>Konsultācija</h3>
 <div class="ep">60 €/h</div>
 <p>Individuāla konsultācija par AI rīkiem tavā biznesā.</p>
 </div>
@@ -884,7 +888,7 @@ Izbraukumi ārpus Rīgas: 50 € + degvielas izmaksas. Pirmā tikšanās bez mak
 <div class="liaa-box fade-up">
 <div class="liaa-grid">
 <div class="liaa-card">
-<h4>Ko šādas programmas parasti sedz</h4>
+<h3>Ko šādas programmas parasti sedz</h3>
 <ul>
 <li>Digitālo rīku ieviešanu</li>
 <li>Čatbotus un automatizāciju</li>
@@ -893,7 +897,7 @@ Izbraukumi ārpus Rīgas: 50 € + degvielas izmaksas. Pirmā tikšanās bez mak
 </ul>
 </div>
 <div class="liaa-card">
-<h4>Kas parasti var pieteikties</h4>
+<h3>Kas parasti var pieteikties</h3>
 <ul>
 <li>Mikrouzņēmumi (līdz 10 darbiniekiem)</li>
 <li>Mazie uzņēmumi (līdz 50)</li>
@@ -902,7 +906,7 @@ Izbraukumi ārpus Rīgas: 50 € + degvielas izmaksas. Pirmā tikšanās bez mak
 </ul>
 </div>
 <div class="liaa-card">
-<h4>Kā es palīdzu</h4>
+<h3>Kā es palīdzu</h3>
 <ul>
 <li>Pārbaudām, vai programma ir atvērta</li>
 <li>Izvērtējam tavu atbilstību</li>
@@ -1159,16 +1163,19 @@ if (consent === "accepted") {
   loadAnalytics();
 } else if (consent !== "declined") {
   banner.classList.add("show");
+  document.body.classList.add("banner-open");
 }
 
 document.getElementById("cookie-accept").addEventListener("click", function(){
   try { localStorage.setItem("cookieConsent","accepted"); } catch(e){}
   banner.classList.remove("show");
+  document.body.classList.remove("banner-open");
   loadAnalytics();
 });
 document.getElementById("cookie-decline").addEventListener("click", function(){
   try { localStorage.setItem("cookieConsent","declined"); } catch(e){}
   banner.classList.remove("show");
+  document.body.classList.remove("banner-open");
 });
 
 /* ---------- Kontaktforma ---------- */
@@ -1461,13 +1468,16 @@ Array.prototype.forEach.call(document.querySelectorAll(".lang-btn"), function(bt
   function isMobile(){ return window.innerWidth < 768; }
 
   function build(){
+    // Nolasām izmērus VIENU reizi, tad rakstām — tā izvairāmies no piespiedu pārkārtošanas
+    var vw = window.innerWidth, vh = window.innerHeight;
+    var mobile = vw < 768;
     DPR = Math.min(window.devicePixelRatio || 1, 2);
-    W = cv.width = Math.floor(window.innerWidth * DPR);
-    H = cv.height = Math.floor(window.innerHeight * DPR);
-    cv.style.width = window.innerWidth + "px";
-    cv.style.height = window.innerHeight + "px";
-    var count = isMobile() ? 34 : 70;
-    linkDist = (isMobile() ? 110 : 150) * DPR;
+    W = cv.width = Math.floor(vw * DPR);
+    H = cv.height = Math.floor(vh * DPR);
+    cv.style.width = vw + "px";
+    cv.style.height = vh + "px";
+    var count = mobile ? 34 : 70;
+    linkDist = (mobile ? 110 : 150) * DPR;
     parts = [];
     for (var i = 0; i < count; i++){
       parts.push({

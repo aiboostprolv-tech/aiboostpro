@@ -249,7 +249,7 @@ img{max-width:100%;height:auto;}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
 
 nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:1rem 3rem;background:rgba(10,10,10,0.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.06);}
-.logo{font-family:"Syne",sans-serif;font-weight:800;font-size:1.3rem;color:var(--white);text-decoration:none;display:flex;align-items:center;gap:0.5rem;}
+.logo{font-family:"Syne",sans-serif;font-weight:800;font-size:1.15rem;color:var(--white);text-decoration:none;display:flex;align-items:center;gap:0.5rem;}
 .logo .ai{color:var(--accent);}
 .logo .pro{color:#4d8aff;}
 .logo-bot{width:30px;height:30px;flex-shrink:0;animation:botFloat 4s ease-in-out infinite;}
@@ -284,7 +284,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content
 body>nav,body>main,body>footer{position:relative;z-index:1;}
 #wa-btn,#chat-btn,#chat-window,.back-to-top,#cookie-banner{position:fixed!important;}
 body>nav{z-index:200;}
-.hero,.section-wrap,.why-section,.testimonials-section,.contact-section,.strip{position:relative;}
+.hero,.section-wrap,.why-section,.contact-section,.strip{position:relative;}
 .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 80% 50%,rgba(0,229,160,0.08),transparent 70%),radial-gradient(ellipse 40% 40% at 20% 80%,rgba(0,102,255,0.08),transparent 60%);pointer-events:none;}
 .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;}
 .hero-content{position:relative;max-width:1100px;margin:0 auto;width:100%;display:grid;grid-template-columns:1.05fr 0.95fr;gap:3rem;align-items:center;}
@@ -321,7 +321,7 @@ body>nav{z-index:200;}
 .hero-tag::before{content:"";width:6px;height:6px;background:var(--accent);border-radius:50%;animation:pulse 2s infinite;}
 @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
-.hero h1{font-family:"Syne",sans-serif;font-size:clamp(2.2rem,5.5vw,5rem);font-weight:800;line-height:1.05;letter-spacing:-0.03em;margin-bottom:1.2rem;animation:fadeUp 0.7s ease both;}
+.hero h1{font-family:"Syne",sans-serif;font-size:clamp(1.9rem,4.6vw,3.4rem);font-weight:800;line-height:1.05;letter-spacing:-0.03em;margin-bottom:1.2rem;animation:fadeUp 0.7s ease both;}
 .hero h1 em{font-style:normal;color:var(--accent);}
 .hero-sub{font-size:1rem;color:var(--muted);max-width:520px;margin-bottom:2rem;animation:fadeUp 0.7s 0.1s ease both;}
 .hero-actions{display:flex;gap:0.8rem;flex-wrap:wrap;animation:fadeUp 0.7s 0.2s ease both;}
@@ -330,18 +330,18 @@ body>nav{z-index:200;}
 .btn-secondary{border:1px solid rgba(255,255,255,0.2);color:var(--white);padding:0.8rem 1.7rem;border-radius:100px;font-size:0.88rem;text-decoration:none;display:inline-block;transition:border-color 0.2s;}
 .btn-secondary:hover{border-color:rgba(255,255,255,0.5);}
 .hero-stats{display:flex;gap:2.5rem;margin-top:3.5rem;padding-top:2.5rem;border-top:1px solid rgba(255,255,255,0.08);animation:fadeUp 0.7s 0.3s ease both;flex-wrap:wrap;}
-.stat-num{font-family:"Syne",sans-serif;font-size:1.9rem;font-weight:800;color:var(--accent);}
+.stat-num{font-family:"Syne",sans-serif;font-size:1.5rem;font-weight:800;color:var(--accent);}
 .stat-label{font-size:0.75rem;color:var(--muted);}
 
 .strip{background:var(--gray);border-top:1px solid rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.05);padding:1.5rem 3rem;}
 .strip-inner{max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:center;text-align:center;}
 .strip-item{flex:1;min-width:200px;padding:0.5rem;}
-.strip-item h2{font-family:"Syne",sans-serif;font-size:1.1rem;font-weight:800;color:var(--accent);margin-bottom:0.3rem;}
+.strip-item h2{font-family:"Syne",sans-serif;font-size:1rem;font-weight:800;color:var(--accent);margin-bottom:0.3rem;}
 .strip-item p{font-size:0.78rem;color:var(--muted);}
 
 .section-wrap{padding:5rem 3rem;max-width:1100px;margin:0 auto;}
 .section-tag{font-size:0.72rem;font-weight:600;color:var(--accent);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.7rem;}
-.section-wrap h2,.why-section h2,.testimonials-section h2,.contact-section h2{font-family:"Syne",sans-serif;font-size:clamp(1.7rem,3.5vw,2.6rem);font-weight:800;letter-spacing:-0.03em;line-height:1.1;margin-bottom:0.8rem;}
+.section-wrap h2,.why-section h2,.contact-section h2{font-family:"Syne",sans-serif;font-size:clamp(1.5rem,3vw,2.1rem);font-weight:800;letter-spacing:-0.03em;line-height:1.1;margin-bottom:0.8rem;}
 .section-desc{color:var(--muted);font-size:0.88rem;max-width:520px;margin-bottom:2.5rem;line-height:1.7;}
 .prose p{color:var(--muted);font-size:0.9rem;line-height:1.9;margin-bottom:1rem;max-width:760px;}
 .prose h3{font-family:"Syne",sans-serif;font-size:1.15rem;font-weight:700;margin:1.5rem 0 0.7rem;}
@@ -365,15 +365,17 @@ body>nav{z-index:200;}
 .case-card{background:var(--gray);border:1px solid rgba(0,229,160,0.15);border-radius:16px;padding:1.5rem;position:relative;overflow:hidden;}
 .case-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));}
 .case-label{font-size:0.7rem;color:var(--accent);font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.7rem;}
-.case-num{font-family:"Syne",sans-serif;font-size:2rem;font-weight:800;color:var(--accent);line-height:1.1;}
+.case-num{font-family:"Syne",sans-serif;font-size:clamp(1.3rem,4vw,1.6rem);font-weight:800;color:var(--accent);line-height:1.15;}
 .case-title{font-weight:600;margin:0.3rem 0 0.5rem;font-size:0.92rem;}
 .case-card p{font-size:0.78rem;color:var(--muted);line-height:1.6;}
+.case-quiet{background:var(--gray);border:1px solid rgba(255,255,255,0.07);border-left:2px solid var(--accent);border-radius:12px;padding:1.5rem;max-width:680px;}
+.case-quiet p{color:var(--muted);font-size:0.88rem;line-height:1.7;margin-bottom:0.8rem;}
+.case-quiet strong{color:var(--white);font-weight:600;}
+.case-quiet-links{display:flex;gap:0.6rem;align-items:center;font-size:0.82rem;margin-bottom:0!important;}
+.case-quiet-links a{color:var(--accent);text-decoration:none;}
+.case-quiet-links a:hover{text-decoration:underline;}
+.case-quiet-links span{color:rgba(255,255,255,0.2);}
 
-.testimonials-section{background:var(--gray);border-radius:20px;padding:3rem;margin:2.5rem 3rem 0;border:1px solid rgba(255,255,255,0.06);text-align:center;}
-.testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.1rem;margin-top:2rem;}
-.testimonial-card{background:var(--black);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:1.3rem;text-align:left;}
-.testimonial-card p{color:var(--muted);font-size:0.8rem;line-height:1.6;font-style:italic;}
-.testimonial-card span{display:block;color:var(--accent);font-size:0.72rem;margin-top:0.7rem;font-style:normal;}
 
 .pricing-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:1.1rem;margin-top:1.5rem;}
 .pc{background:var(--gray);border:1px solid rgba(255,255,255,0.07);border-radius:18px;padding:1.8rem;width:250px;position:relative;transition:transform 0.3s,border-color 0.3s;display:flex;flex-direction:column;}
@@ -383,7 +385,7 @@ body>nav{z-index:200;}
 .pc.pop{border-color:rgba(0,229,160,0.32);background:linear-gradient(145deg,#17201c,#17171c);}
 .pop-badge{position:absolute;top:0.9rem;right:0.9rem;background:var(--accent);color:#000;font-size:0.6rem;font-weight:800;padding:0.2rem 0.55rem;border-radius:100px;text-transform:uppercase;}
 .pc-name{font-family:"Syne",sans-serif;font-size:1.05rem;font-weight:800;margin-bottom:0.2rem;}
-.pc-price{font-family:"Syne",sans-serif;font-size:2rem;font-weight:800;color:var(--accent);margin:0.4rem 0 0.15rem;}
+.pc-price{font-family:"Syne",sans-serif;font-size:1.7rem;font-weight:800;color:var(--accent);margin:0.4rem 0 0.15rem;}
 .pc-price span{font-size:0.78rem;color:var(--muted);font-family:"DM Sans",sans-serif;font-weight:400;}
 .pc-desc{color:var(--muted);font-size:0.75rem;margin-bottom:0.9rem;line-height:1.4;}
 .pc-features{list-style:none;display:flex;flex-direction:column;gap:0.42rem;margin-bottom:auto;padding-bottom:1.1rem;font-size:0.78rem;}
@@ -425,7 +427,7 @@ body>nav{z-index:200;}
 .about-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:3.5rem;align-items:center;}
 .about-visual{background:var(--gray);border-radius:18px;padding:2.5rem;border:1px solid rgba(255,255,255,0.06);text-align:center;}
 .avatar-circle{width:88px;height:88px;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:50%;margin:0 auto 1.2rem;display:flex;align-items:center;justify-content:center;font-family:"Syne",sans-serif;font-size:2rem;font-weight:800;color:var(--black);}
-.about-name{font-family:"Syne",sans-serif;font-size:1.3rem;font-weight:700;margin-bottom:0.3rem;}
+.about-name{font-family:"Syne",sans-serif;font-size:1.15rem;font-weight:700;margin-bottom:0.3rem;}
 .about-role{color:var(--accent);font-size:0.78rem;margin-bottom:1.2rem;}
 .skills-tags{display:flex;flex-wrap:wrap;gap:0.4rem;justify-content:center;}
 .skill-tag{background:rgba(0,229,160,0.1);border:1px solid rgba(0,229,160,0.2);color:var(--accent);font-size:0.7rem;padding:0.22rem 0.65rem;border-radius:100px;}
@@ -450,6 +452,9 @@ body>nav{z-index:200;}
 footer{text-align:center;padding:2rem 3rem;color:var(--muted);font-size:0.78rem;border-top:1px solid rgba(255,255,255,0.06);}
 footer p{margin-bottom:0.4rem;}
 footer span{color:var(--accent);}
+.foot-portfolio{display:flex;align-items:center;justify-content:center;gap:0.4rem;font-size:0.8rem;color:#9aa2ad;opacity:0.85;margin-bottom:0.9rem;}
+.foot-portfolio a{color:var(--accent);text-decoration:none;}
+.foot-portfolio a:hover{text-decoration:underline;}
 
 .fade-up{opacity:0;transform:translateY(25px);transition:opacity 0.6s ease,transform 0.6s ease;}
 .fade-up.visible{opacity:1;transform:translateY(0);}
@@ -501,7 +506,7 @@ nav{padding:0.85rem 1.2rem;}
 .hero-stats{margin-top:0;padding-top:2rem;gap:1.5rem;}
 .strip{padding:1.5rem 1.2rem;}
 .section-wrap{padding:3.5rem 1.2rem;}
-.why-section,.testimonials-section,.contact-section{margin-left:1.2rem;margin-right:1.2rem;padding-left:1.5rem;padding-right:1.5rem;}
+.why-section,.contact-section{margin-left:1.2rem;margin-right:1.2rem;padding-left:1.5rem;padding-right:1.5rem;}
 .why-section{grid-template-columns:1fr;padding:2rem 1.5rem;gap:2rem;}
 .about-grid{grid-template-columns:1fr;gap:2rem;}
 .contact-section{margin-bottom:4rem;padding:2.5rem 1.5rem;}
@@ -562,6 +567,7 @@ html{scroll-behavior:auto;}
 <li><a href="#pakalpojumi">Pakalpojumi</a></li>
 <li><a href="#cenas">Cenas</a></li>
 <li><a href="#projekti">Projekti</a></li>
+<li><a href="/blog/">Blogs</a></li>
 <li><a href="#par-mani">Par mani</a></li>
 <li><a href="#faq">FAQ</a></li>
 <li><a href="#kontakti" class="nav-cta">Sazināties</a></li>
@@ -580,6 +586,7 @@ html{scroll-behavior:auto;}
 <a href="#pakalpojumi">Pakalpojumi</a>
 <a href="#cenas">Cenas</a>
 <a href="#projekti">Projekti</a>
+<a href="/blog/">Blogs</a>
 <a href="#par-mani">Par mani</a>
 <a href="#faq">FAQ</a>
 <a href="#kontakti">Bezmaksas konsultācija</a>
@@ -750,50 +757,20 @@ html{scroll-behavior:auto;}
 <section class="section-wrap" id="projekti">
 <p class="section-tag">Projekti</p>
 <h2>Reāls darbs, reāli skaitļi</h2>
-<p class="section-desc">Katru projektu var atvērt un apskatīt. Skaitļi ir no klienta kontiem.</p>
-<div class="case-grid fade-up">
+<p class="section-desc">Katrs projekts ir atverams un pārbaudāms. Skaitļi nāk no klienta kontiem, ne no iztēles.</p>
 
-<div class="case-card">
-<p class="case-label">Senioru aprūpe · Rūjiena</p>
-<div class="case-num">43 174</div>
-<p class="case-title">Skatījumi vienam video</p>
-<p>SARC "Rūjienas senioru māja" sociālo tīklu saturs. Labākais video sasniedza 43 174 skatījumus, 559 patīk un 25 kopīgošanas — vairāk nekā 30 reizes vairāk cilvēku, nekā lapai ir sekotāju.</p>
-</div>
-
-<div class="case-card">
-<p class="case-label">Senioru aprūpe · Rūjiena</p>
-<div class="case-num">3 valodas</div>
-<p class="case-title">Mājaslapa ar AI čatbotu</p>
-<p>Pilna mājaslapa latviešu, krievu un angļu valodā: cenas, galerija ar 42 attēliem, blogs, kontaktforma un čatbots, kas atbild par aprūpes pakalpojumiem. <a href="https://rujienasseniorumaja.lv" target="_blank" rel="noopener">Apskatīt lapu</a></p>
+<div class="case-quiet fade-up">
+<p><strong>SARC "Rūjienas senioru māja"</strong> — trilingvāla mājaslapa ar AI čatbotu, galeriju un blogu. Papildus sociālo tīklu pārvaldība.</p>
+<p class="case-quiet-links">
+<a href="https://rujienasseniorumaja.lv" target="_blank" rel="noopener">Apskatīt lapu</a>
+<span>·</span>
+<a href="/blog/rujienas-senioru-maja.html">Lasīt, kā tas tapa</a>
+</p>
 </div>
 
-<div class="case-card">
-<p class="case-label">Senioru aprūpe · Rūjiena</p>
-<div class="case-num">1300 → 1400</div>
-<p class="case-title">Facebook sekotāji</p>
-<p>Regulāra satura publicēšana un komentāru moderācija. Lapā šobrīd 724 ieraksti, un video sasniedzamība vairākkārt pārsniedz sekotāju skaitu.</p>
-</div>
-
-</div>
-</section>
-
-<!-- ============================================================
-     ATSAUKSMES
-     SVARĪGI: šeit drīkst būt tikai reālas atsauksmes ar atļauju.
-     Zemāk ir viena reāla klienta bloks — aizpildi citātu, kad
-     Jānis Roze to atsūta, un tikai tad noņem komentāra zīmes
-     otram un trešajam blokam, kad būs vēl divi klienti.
-     ============================================================ -->
-<section class="testimonials-section fade-up">
-<p class="section-tag">Atsauksmes</p>
-<h2>Ko saka klienti</h2>
-<div class="testimonials-grid">
-<div class="testimonial-card">
-<p>"AIZVIETO ŠO TEKSTU AR REĀLU KLIENTA CITĀTU."</p>
-<span>— Vārds Uzvārds, amats, uzņēmums</span>
-</div>
-</div>
-<p style="font-size:0.75rem;color:var(--muted);margin-top:1.5rem;">Atsauksmes publicētas ar klientu atļauju.</p>
+<p style="text-align:center;margin-top:2rem;font-size:0.85rem;">
+<a href="/blog/" style="color:var(--accent);text-decoration:none;">Vairāk rakstu un projektu blogā →</a>
+</p>
 </section>
 
 <section class="section-wrap" id="cenas">
@@ -827,9 +804,9 @@ html{scroll-behavior:auto;}
 <ul class="pc-features">
 <li>20–30 ieraksti mēnesī (kopā visās platformās)</li>
 <li>2–3 platformas</li>
-<li>Komentāru moderācija</li>
+<li>Atbildu uz komentāriem tavā vietā</li>
 <li>SEO pamati</li>
-<li>Latviešu un krievu valoda</li>
+<li>Latviešu, krievu un angļu valoda</li>
 <li>Prioritāra saziņa</li>
 </ul>
 <hr class="pc-divider">
@@ -846,7 +823,7 @@ html{scroll-behavior:auto;}
 <li>Visas platformas, arī TikTok</li>
 <li>Pilna SEO stratēģija</li>
 <li>Reklāmu optimizācija</li>
-<li>Trīs valodas</li>
+<li>Ikmēneša stratēģijas saruna</li>
 <li>Atbalsts katru darba dienu</li>
 </ul>
 <hr class="pc-divider">
@@ -1042,6 +1019,7 @@ Informācija ir vispārīga un var mainīties. Atbalsta programmu pieejamība, a
 </main>
 
 <footer>
+<p class="foot-portfolio">Mūsu veidots: <a href="https://rujienasseniorumaja.lv" target="_blank" rel="noopener">Rūjienas Senioru māja</a></p>
 <p>© 2026 AiBoost Pro — AI čatboti un digitālais mārketings. Rīga, Latvija.</p>
 <p><a href="/privacy.html">Privātuma politika</a> · <a href="/terms.html">Lietošanas noteikumi</a></p>
 <p>Veidots <span>Latvijā</span></p>
